@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/core": "^6.0.13",
     "@types/express": "^4.17.17",
     "@types/node": "20.1.4",
     "@types/react": "18.2.6",
@@ -20,6 +21,7 @@
     "next": "13.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.9.0",
     "typescript": "5.0.4"
   },
   "devDependencies": {
