@@ -13,7 +13,6 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
 }) => {
   const [ProfilePage, setProfilePage] = useState(false);
 
-  // Update ProfilePage whenever showProfile changes
   React.useEffect(() => {
     setProfilePage(showProfile);
   }, [showProfile]);
