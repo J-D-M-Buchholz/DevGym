@@ -10,7 +10,7 @@ dotenv.config();
 
 app.use(cors());
 
-app.put('/api/dashboard/post/:id/like', likePost)
+app.put("/api/dashboard/post/:id/like", likePost);
 
 const startServer = async (): Promise<void> => {
   try {

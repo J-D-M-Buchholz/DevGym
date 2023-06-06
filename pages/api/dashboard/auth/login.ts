@@ -10,7 +10,7 @@ dotenv.config();
 
 app.use(cors());
 
-app.post('/api/dashboard/auth/login', loginUser)
+app.post("/api/dashboard/auth/login", loginUser);
 
 const startServer = async (): Promise<void> => {
   try {

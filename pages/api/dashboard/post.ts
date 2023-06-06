@@ -4,14 +4,13 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { createPost } from "@/controller/dashboard/postController";
 
-
 const app = express();
 
 dotenv.config();
 
 app.use(cors());
 
-app.post('/api/dashboard/post', createPost)
+app.post("/api/dashboard/post", createPost);
 
 const startServer = async (): Promise<void> => {
   try {

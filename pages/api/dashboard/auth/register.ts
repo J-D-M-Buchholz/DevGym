@@ -10,7 +10,7 @@ dotenv.config();
 
 app.use(cors());
 
-app.post('/api/dashboard/auth/register', registerUser)
+app.post("/api/dashboard/auth/register", registerUser);
 
 const startServer = async (): Promise<void> => {
   try {
