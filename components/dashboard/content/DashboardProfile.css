@@ -1,0 +1,12 @@
+.DashboardProfile {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 18rem auto 20rem;
+  position: relative;
+}
+
+.Profile-center {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

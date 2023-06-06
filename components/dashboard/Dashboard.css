@@ -1,0 +1,46 @@
+.button {
+  align-items: center;
+  background: linear-gradient(90deg, gray, lightgray 100%);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  transition: all 100ms ease-out;
+}
+
+.button:hover {
+  background: transparent;
+  color: gray;
+  cursor: pointer;
+}
+
+.icon {
+  left: 1%;
+  position: fixed;
+  top: 7.25%;
+  z-index: 10;
+}
+
+.person-icon {
+  border-radius: 50%;
+  background: linear-gradient(90deg, gray, lightgray 100%);
+  padding: 0.25rem;
+}
+
+.rounded-div {
+  background: linear-gradient(180deg, lightgray, whitesmoke 100%);
+  border-radius: 1rem;
+  height: 75%;
+  left: 1%;
+  overflow: hidden;
+  padding: 1rem;
+  position: fixed;
+  top: 15%;
+  width: 70%;
+  z-index: 10;
+}
+
+::-webkit-scrollbar {
+ display:none
+}
