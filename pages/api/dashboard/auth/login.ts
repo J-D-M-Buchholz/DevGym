@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { loginUser } from "@/controller/dashboard/authController";
 
-
 const app = express();
 
 dotenv.config();
