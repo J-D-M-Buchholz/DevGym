@@ -4,14 +4,13 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { loginUser } from "@/controller/dashboard/authController";
 
-
 const app = express();
 
 dotenv.config();
 
 app.use(cors());
 
-app.post('/api/dashboard/auth/login', loginUser)
+app.post("/api/dashboard/auth/login", loginUser);
 
 const startServer = async (): Promise<void> => {
   try {

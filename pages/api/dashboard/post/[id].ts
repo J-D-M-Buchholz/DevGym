@@ -2,7 +2,11 @@ import connectDB from "@/db/connect";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { registerUser } from "@/controller/dashboard/authController";
+import {
+  deletePost,
+  getPost,
+  updatePost,
+} from "@/controller/dashboard/postController";
 
 const app = express();
 
@@ -10,7 +14,9 @@ dotenv.config();
 
 app.use(cors());
 
-app.post("/api/dashboard/auth/register", registerUser);
+app.get("/api/dashboard/post/:id", getPost);
+app.put("/api/dashboard/post/:id", updatePost);
+app.delete("/api/dashboard/post/:id", deletePost);
 
 const startServer = async (): Promise<void> => {
   try {
