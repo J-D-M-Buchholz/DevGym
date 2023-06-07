@@ -2,7 +2,8 @@ import connectDB from "@/db/connect";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { UnFollowUser } from "@/controller/dashboard/userController";
+import { unFollowUser } from "@/controller/dashboard/userController";
+
 
 const app = express();
 
@@ -10,7 +11,7 @@ dotenv.config();
 
 app.use(cors());
 
-app.put("/api/dashboard/user/:id/unfollow", UnFollowUser);
+app.put("/api/dashboard/user/:id/unfollow", unFollowUser);
 
 const startServer = async (): Promise<void> => {
   try {
