@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FollowersCard.css";
 import { Followers } from "@/Data/FollowersData";
 
