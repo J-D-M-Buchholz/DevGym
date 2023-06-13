@@ -15,6 +15,7 @@ const DashboardAuth: React.FC = () => {
   const [isSignUp, setIsSignUp] = useState(true);
   const [data, setData] = useState(initialState);
   const [confirmPassword, setConfirmPassword] = useState(true);
+  const [responseMessage, setResponseMessage] = useState("");
   const { login } = useAuth();
 
   async function signUp() {
@@ -35,6 +36,35 @@ const DashboardAuth: React.FC = () => {
       console.log(responseData);
       if (responseData.username) {
         login();
+      } else {
+        setResponseMessage(responseData.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function userLogin() {
+    try {
+      const response = await fetch(
+        "https://devgym-drab.vercel.app/api/dashboard/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: data.username,
+            password: data.password,
+          }),
+        }
+      );
+      const responseData = await response.json();
+      console.log(responseData);
+      if (responseData.username) {
+        login();
+      } else {
+        setResponseMessage(responseData);
       }
     } catch (error) {
       console.log(error);
@@ -49,7 +79,9 @@ const DashboardAuth: React.FC = () => {
     setConfirmPassword(true);
     e.preventDefault();
     if (isSignUp) {
-      data.password == data.confirmpass ? signUp() : setConfirmPassword(false);
+      data.password === data.confirmpass ? signUp() : setConfirmPassword(false);
+    } else {
+      userLogin();
     }
   };
 
@@ -120,17 +152,30 @@ const DashboardAuth: React.FC = () => {
               />
             )}
           </div>
-          <span
+          <span className="warningMessage"
             style={{
-              color: "red",
-              fontSize: "12px",
-              alignSelf: "flex-end",
-              marginRight: "5px",
-              display: confirmPassword ? "none" : "block",
+              display: responseMessage ? "block" : "none",
             }}
           >
-            Confirm password is not the same!!!
+            {responseMessage}
           </span>
+          {isSignUp ? (
+            <span className="warningMessage"
+              style={{
+                display: confirmPassword ? "none" : "block",
+              }}
+            >
+              Confirm password is not the same!!!
+            </span>
+          ) : (
+            <span className="warningMessage"
+              style={{
+                display: responseMessage ? "block" : "none",
+              }}
+            >
+              {responseMessage}
+            </span>
+          )}
           <div>
             <span
               style={{ fontSize: "12px", cursor: "pointer" }}
