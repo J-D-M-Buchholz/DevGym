@@ -34,8 +34,8 @@ const DashboardAuth: React.FC = () => {
       });
       const responseData = await response.json();
       console.log(responseData);
-      if (responseData.username) {
-        login();
+      if (responseData.user) {
+        login(responseData);
       } else {
         setResponseMessage(responseData.message);
       }
@@ -61,8 +61,8 @@ const DashboardAuth: React.FC = () => {
       );
       const responseData = await response.json();
       console.log(responseData);
-      if (responseData.username) {
-        login();
+      if (responseData.user) {
+        login(responseData);
       } else {
         setResponseMessage(responseData);
       }

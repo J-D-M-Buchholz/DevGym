@@ -9,23 +9,39 @@ import {
   FaVideo,
 } from "react-icons/fa";
 import "./PostShare.css";
-
-interface Image {
-  image: string;
-}
+import { useAuth } from "@/components/AuthContext";
 
 const PostShare = () => {
-  const [image, setImage] = useState<Image | null>(null);
+  const [image, setImage] = useState<File | null>(null);
   const imageRef = useRef<HTMLInputElement>(null);
+  const desc = useRef<HTMLInputElement>(null);
+  const { responseData } = useAuth();
 
   const onImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
-      setImage({
-        image: URL.createObjectURL(img),
-      });
+      setImage(img);
     }
   };
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+
+      const user = responseData?.user
+      const newPost: { userId: string; desc: any; image?: string } = {
+        userId: user._id,
+        desc: desc.current?.value
+      }
+      if (image) {
+        const data = new FormData();
+        const fileName = Date.now() + image.name;
+        data.append("name", fileName);
+        data.append("file", image);
+        newPost.image = fileName;
+        console.log(newPost);
+      };
+  };
+
   return (
     <div className="PostShare">
       <img
@@ -36,9 +52,12 @@ const PostShare = () => {
         height={100}
       />
       <div>
-        <input type="text" placeholder="Post it..." />
+        <input ref={desc} required type="text" placeholder="Post it..." />
         <div className="postOptions">
-          <div className="button option" onClick={() => imageRef.current?.click()}>
+          <div
+            className="button option"
+            onClick={() => imageRef.current?.click()}
+          >
             <FaImage />
             Photo
           </div>
@@ -54,10 +73,10 @@ const PostShare = () => {
             <FaCalendar />
             Calendar
           </div>
-          <button className="button">
+          <button className="button" onClick={handleSubmit}>
             <FaShare />
             Share
-            </button>
+          </button>
           <div style={{ display: "none" }}>
             <input
               type="file"
@@ -70,7 +89,7 @@ const PostShare = () => {
         {image && (
           <div className="previewImage">
             <FaTimes onClick={() => setImage(null)} />
-            <img src={image.image} alt="" />
+            <img src={URL.createObjectURL(image)} alt="" />
           </div>
         )}
       </div>
