@@ -1,60 +1,32 @@
-"use client";
-import React, { createContext, useContext, useEffect, useState } from "react";
-
-interface UserData {
-  user: any;
-  token: string;
-}
+'use client';
+import React, { createContext, useContext, useState } from 'react';
 
 interface AuthContextData {
   isLoggedIn: boolean;
-  login: (data: UserData) => void;
+  login: () => void;
   logout: () => void;
-  responseData: UserData | null;
 }
 
 const AuthContext = createContext<AuthContextData>({
   isLoggedIn: false,
   login: () => {},
   logout: () => {},
-  responseData: null,
 });
 
-export const useAuth = (): AuthContextData => useContext(AuthContext);
+export const useAuth = () => useContext(AuthContext);
 
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+export const AuthProvider = ({
+    children,
+  }: {
+    children: React.ReactNode
+  }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [responseData, setResponseData] = useState<UserData | null>(null);
 
-  useEffect(() => {
-    const storedData = localStorage.getItem("authData");
-    if (storedData) {
-      const parsedData: UserData = JSON.parse(storedData);
-      login(parsedData);
-    }
-  }, []);
-
-  const login = (data: UserData) => {
-    setIsLoggedIn(true);
-    setResponseData(data);
-    localStorage.setItem("authData", JSON.stringify(data));
-  };
-
-  const logout = () => {
-    setIsLoggedIn(false);
-    setResponseData(null);
-    localStorage.removeItem("authData");
-  };
-
-  const authContextValue: AuthContextData = {
-    isLoggedIn,
-    login,
-    logout,
-    responseData,
-  };
+  const login = () => setIsLoggedIn(true);
+  const logout = () => setIsLoggedIn(false);
 
   return (
-    <AuthContext.Provider value={authContextValue}>
+    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
