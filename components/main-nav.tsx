@@ -1,11 +1,10 @@
 import * as React from "react"
 import Link from "next/link"
-
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
 import Image from "next/image"
-import { Navbar } from "@/components/Navbar/navbar"
+import { Navbar } from "./navbar/Navbar"
+
 
 interface MainNavProps {
   items?: NavItem[]
