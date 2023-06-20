@@ -2,8 +2,7 @@ import connectDB from "@/db/connect";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { unFollowUser } from "@/controller/dashboard/userController";
-
+import { uploadFile } from "@/controller/dashboard/uploadController";
 
 const app = express();
 
@@ -11,7 +10,7 @@ dotenv.config();
 
 app.use(cors());
 
-app.put("/api/dashboard/user/:id/unfollow", unFollowUser);
+app.post("/api/dashboard/upload", uploadFile);
 
 const startServer = async (): Promise<void> => {
   try {

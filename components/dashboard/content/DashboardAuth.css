@@ -81,3 +81,10 @@
   outline: none;
   padding: 1.25rem;
 }
+
+.warnigMessage {
+  color: "red";
+  font-size: "12px";
+  align-self: "flex-end";
+  margin-right: "5px";
+}

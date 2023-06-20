@@ -104,7 +104,7 @@ export const followUser = async (
   }
 };
 
-export const UnFollowUser = async (
+export const unFollowUser = async (
   req: express.Request,
   res: express.Response
 ) => {

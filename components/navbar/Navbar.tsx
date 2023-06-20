@@ -1,6 +1,6 @@
 //Bitte alles außer den Nav löschen und eigene Komponenten hier einfügen!!!
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 const Navbar = () => {
   return (
