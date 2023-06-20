@@ -16,10 +16,10 @@ export function MainNav({ items }: MainNavProps) {
 
       <Link href="/" className="flex items-center space-x-2">
       <Image
-                      src="/public/images/Logo.svg"
+                      src="/Logo.svg"
 
-                      width={20}
-                      height={20}
+                      width={50}
+                      height={50}
                       alt="Logo"
                     />
         <span className="inline-block font-bold">{siteConfig.name}</span>

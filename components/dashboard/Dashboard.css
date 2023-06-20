@@ -38,7 +38,7 @@
   position: fixed;
   top: 15%;
   width: 70%;
-  z-index: 10;
+  z-index: 100;
 }
 
 ::-webkit-scrollbar {
