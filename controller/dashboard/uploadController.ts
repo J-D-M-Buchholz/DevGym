@@ -23,6 +23,7 @@ export const uploadFile = (req: Request, res: Response) => {
       console.error(error);
       return res.status(500).json("File upload failed");
     }
+    console.log("File uploaded");
     return res.status(200).json("File uploaded successfully");
   });
 };
