@@ -1,4 +1,4 @@
-import AboutContent from '@/components/About/AboutContent'
+import AboutContent from '@/components/about/AboutContent'
 import React from 'react'
 
 const page = () => {

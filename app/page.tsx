@@ -1,8 +1,6 @@
-import Link from "next/link"
 import React from "react"
-import Dashboard from "@/components/Dashboard/Dashboard"
-
 import Hero from "@/components/Hero/Hero"
+
 
 export default function IndexPage() {
   return (

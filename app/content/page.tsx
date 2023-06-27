@@ -1,4 +1,4 @@
-import ContentContent from '@/components/Contact/ContactContent';
+import ContentContent from '@/components/content/ContentContent'
 import React from 'react'
 
 const page = () => {

@@ -1,13 +1,12 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
-
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { AuthProvider } from "@/components/AuthContext"
-import Footer from "@/components/Footer/Footer"
+import Dashboard from "@/components/Dashboard/Dashboard"
 
 export const metadata: Metadata = {
   title: {
@@ -43,10 +42,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <AuthProvider>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              {/* <Dashboard /> */}
               <div className="relative flex min-h-screen flex-col">
                 <SiteHeader />
                 <div className="flex-1">{children}</div>
-                <Footer />
               </div>
             </ThemeProvider>
           </AuthProvider>
