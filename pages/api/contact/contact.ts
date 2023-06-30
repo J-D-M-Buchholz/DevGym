@@ -1,6 +1,6 @@
 //Test API
 
-import { contactController } from "@/controller/dashboard/contactController"
+import { contactController } from "@/controller/contact/contactController"
 import connectDB from "@/db/connect"
 import express from "express"
 

@@ -8,15 +8,15 @@ export async function contactController(
   req: express.Request,
   res: express.Response
 ) {
-  const { name, email, phoneNumber, message } = req.body
+  const { firstname, lastname, email, phoneNumber, details } = req.body
 
   try {
     const mailOptions = {
       from: email,
       to: "teamdevgym@gmail.com",
-      subject: `Contact from ${name}`,
-      html: `<p><b>Name:</b> ${name} </p> <p><b>Email:</b> ${email} </p> <b>Phone Number:</b> ${phoneNumber} </p>  <p><b>Message</b>: ${message}</p> `,
-      text: message,
+      subject: `Contact from ${firstname} ${lastname}`,
+      html: `<p><b>Firstname:</b> ${firstname} </p> <p><b>Lastname:</b> ${lastname} </p> <p><b>Email:</b> ${email} </p> <b>Phone Number:</b> ${phoneNumber} </p>  <p><b>Message</b>: ${details}</p> `,
+      text: details,
     }
 
     const transporter = nodemailer.createTransport({
@@ -36,7 +36,13 @@ export async function contactController(
           })
         }
 
-        const newContact = new Contact({ name, email, phoneNumber, message })
+        const newContact = new Contact({
+          firstname,
+          lastname,
+          email,
+          phoneNumber,
+          details,
+        })
         await newContact.save()
 
         return res.status(250).json({

@@ -5,10 +5,11 @@ import "@/styles/contact.css"
 import React, { FormEvent, useState } from "react"
 
 const ContactContent = () => {
-  const [name, setName] = useState("")
+  const [firstname, setFirstname] = useState("")
+  const [lastname, setLastname] = useState("")
   const [email, setEmail] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
-  const [message, setMessage] = useState("")
+  const [details, setDetails] = useState("")
 
   const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value
@@ -24,17 +25,24 @@ const ContactContent = () => {
   }
 
   const sendEmail = async (
-    name: string,
+    firstname: string,
+    lastname: string,
     email: string,
     phoneNumber: string,
-    message: string
+    details: string
   ) => {
     const response = await fetch("/api/contact/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, phoneNumber, message }),
+      body: JSON.stringify({
+        firstname,
+        lastname,
+        email,
+        phoneNumber,
+        details,
+      }),
     })
 
     const data = await response.json()
@@ -45,16 +53,23 @@ const ContactContent = () => {
     e.preventDefault()
 
     try {
-      const req = await sendEmail(name, email, phoneNumber, message)
+      const req = await sendEmail(
+        firstname,
+        lastname,
+        email,
+        phoneNumber,
+        details
+      )
       if (req.status === 250) {
         const data = req.data
         console.log(data)
 
         console.log("email sent")
-        setName("")
+        setFirstname("")
+        setLastname("")
         setEmail("")
         setPhoneNumber("")
-        setMessage("")
+        setDetails("")
       }
     } catch (e) {
       console.log(e)
@@ -65,14 +80,23 @@ const ContactContent = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="firstname">Firstname:</label>
         <input
           type="text"
-          name="name"
-          id="name"
-          placeholder="Enter your fullname"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          name="firstname"
+          id="firstname"
+          placeholder="Enter your firstname"
+          value={firstname}
+          onChange={(e) => setFirstname(e.target.value)}
+        />
+        <label htmlFor="lastname">Lastname:</label>
+        <input
+          type="text"
+          name="lastname"
+          id="lastname"
+          placeholder="Enter your lastname"
+          value={lastname}
+          onChange={(e) => setLastname(e.target.value)}
         />
         <label htmlFor="email">Email:</label>
         <input
@@ -92,15 +116,15 @@ const ContactContent = () => {
           value={phoneNumber === "" ? "+49 " : phoneNumber}
           onChange={handlePhoneNumberChange}
         />
-        <label htmlFor="message">Message:</label>
+        <label htmlFor="details">Details:</label>
         <textarea
-          name="message"
-          id="message"
+          name="details"
+          id="details"
           cols={30}
           rows={10}
           placeholder="How can we help you?"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          value={details}
+          onChange={(e) => setDetails(e.target.value)}
         ></textarea>
 
         <button className="btn" type="submit">
