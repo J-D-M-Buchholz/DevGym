@@ -1,10 +1,21 @@
+.title {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.title:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 40px #26425a6b);
+}
+
 form {
   border: 0.5px solid #26425a6b;
+  box-shadow: 1px 1px 3px 2px #294d61;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5.5rem auto;
+  margin: 2.5rem auto;
   max-width: 600px;
   padding: 20px;
 }
@@ -32,7 +43,9 @@ input[type="email"]:focus,
 textarea:focus {
   outline: none;
   border-color: #26425a6b;
-  box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+  box-shadow: 0.5px 0.5px 1px 0.5px lightblue,
+    -0.5px -0.5px 0.5px 0.5px lightblue;
+  /* box-shadow: 0 0 5px rgba(108, 99, 255, 0.3); */
 }
 
 .btn {
@@ -43,11 +56,18 @@ textarea:focus {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  overflow: hidden;
   transition: background-color 0.3s ease;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
+  outline-offset: 3px;
   background-color: #26425a;
+}
+
+.btn:is(:hover, :focus) {
+  outline-offset: 3px;
 }
 
 @media (max-width: 480px) {

@@ -79,6 +79,7 @@ const ContactContent = () => {
 
   return (
     <>
+      <h1 className="title">CONTACT US</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="firstname">Firstname:</label>
         <input

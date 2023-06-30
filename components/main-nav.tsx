@@ -3,7 +3,7 @@ import Link from "next/link"
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import Image from "next/image"
-import { Navbar } from "./navbar/Navbar"
+import { Navbar } from "./Navbar/Navbar"
 
 
 interface MainNavProps {
@@ -17,10 +17,10 @@ export function MainNav({ items }: MainNavProps) {
       <Link href="/" className="flex items-center space-x-2">
       <Image
                       src="/Logo.svg"
-
-                      width={50}
-                      height={50}
+                      width={40}
+                      height={40}
                       alt="Logo"
+                      style={{color: "white"}}
                     />
         <span className="inline-block font-bold">{siteConfig.name}</span>
       </Link>
