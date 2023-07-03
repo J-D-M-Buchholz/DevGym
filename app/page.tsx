@@ -10,6 +10,7 @@ export default function IndexPage() {
         <Hero />
         <ContactContent />
         {/* <Dashboard /> */}
+        
       </div>
     </section>
   )
