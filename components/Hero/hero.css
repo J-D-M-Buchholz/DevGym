@@ -87,7 +87,6 @@ span {
     max-width: 390px;
     display: flex;
     padding: 10px;
-    background: linear-gradient(#222f43,#222f43) padding-box,linear-gradient(90deg,#0ea5ea,#0bd1d1) border-box;
     border-radius: 8px;
     border: 1px solid transparent;
     width: 100%;
@@ -121,7 +120,7 @@ form {
 }
 
 .btn.btn-linear {
-    background: linear-gradient(90deg,#0ea5ea,#0bd1d1 51%,#0ea5ea) var(--x,0)/200%;
+    /* background: linear-gradient(90deg,#0ea5ea,#0bd1d1 51%,#0ea5ea) var(--x,0)/200%; */
     color: #fff;
     transition: .5s;
 }
@@ -140,31 +139,6 @@ button:not(:disabled) {
     display: inline-block;
     border: 0;
 }
-/* .pattern-1 {
-    position: absolute;
-    top: 33%;
-    left: 0;
-}
-.pattern-2 {
-    position: absolute;
-    top: 18%;
-    right: 15%;
-    animation: hero-thumb-animation 2s linear infinite alternate;
-} */
-
-/* .pattern-3 {
-    position: absolute;
-    bottom: 4%;
-    left: 9%;
-    animation: hero-thumb-animation 2s linear infinite alternate;
-} */
-
-/* .pattern-4 {
-    position: absolute;
-    bottom: 37%;
-    right: 4%;
-    animation: wiggle 2s linear infinite alternate;
-} */
 
 
 .banner-img {
@@ -179,7 +153,6 @@ button:not(:disabled) {
     left: -140px;
     height: 500px;
     width: 500px;
-    background: url(/_next/static/media/shadow-2.5ab01ec0.svg) no-repeat 50%;
     background-size: contain;
     z-index: 1;
 }
@@ -193,14 +166,14 @@ button:not(:disabled) {
 
 .pattern-1 {
     position: absolute;
-    top: -20rem;
+    top: 5rem;
     left: 10%;
     animation: animationFramesOne 20s linear infinite alternate;
 }
 
 .pattern-2 {
     position: absolute;
-    top: -22rem;
+    top: 3rem;
     right: 30%;
     animation: hero-thumb-animation 2s linear infinite alternate;
     animation: rotateMe 10s linear infinite alternate;
@@ -209,14 +182,14 @@ button:not(:disabled) {
 
 .pattern-3 {
     position: absolute;
-    bottom: 4%;
+    bottom: 3%;
     left: 19%;
     animation: hero-thumb-animation 2s linear infinite alternate;
 }
 
 .pattern-4 {
     position: absolute;
-    bottom: 37%;
+    bottom: 32%;
     right: 14%;
     animation: wiggle 2s linear infinite alternate;
 }
@@ -283,14 +256,10 @@ button:not(:disabled) {
 .box-subscriber .inner-subscriber {
     display: flex;
     padding: 10px 10px 10px 20px;
-    background: linear-gradient(#222f43,#222f43) padding-box,linear-gradient(90deg,#0ea5ea,#0bd1d1) border-box;
     border-radius: 8px;
-    border: 1px solid transparent;
+    border: 1px solid #35333386;
 }
 
-.box-subscriber .inner-subscriber:hover {
-    box-shadow: 0 3px 20px rgba(11,209,209,.2);
-}
 
 .box-subscriber .inner-subscriber form {
     width: 100%;
@@ -302,103 +271,48 @@ button:not(:disabled) {
     border: 0;
 }
 
-.box-subscriber .inner-subscriber .btn-arrow-right {
-    min-width: 120px;
+:is(.dark [data-hs-tab].active.dark\:hs-tab-active\:bg-slate-900) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(15 23 42 / var(--tw-bg-opacity));
 }
 
-.box-subscriber .inner-subscriber .btn-arrow-right i {
-    display: inline-block;
-    vertical-align: middle;
+[data-hs-tab].active.hs-tab-active\:shadow-md {
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.box-topics {
-    border-radius: 8px;
-    padding: 24px;
-    border-width: 1px;
-    border-style: solid;
+[data-hs-tab].active.hs-tab-active\:bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.box-author {
-    display: flex;
-    align-items: center;
+:is(.dark [data-hs-tab].active .dark\:hs-tab-active\:text-blue-500) {
+    --tw-text-opacity: 1;
+    color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
-.box-author img {
-    display: inline-block;
-    margin-right: 15px;
-    height: 48px!important;
-    width: 48px!important;
-    border-radius: 50%!important;
+[data-hs-tab].active .hs-tab-active\:text-blue-600 {
+    --tw-text-opacity: 1;
+    color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
-.box-author .author-info {
-    width: 100%;
+:is(.dark .dark\:text-gray-200) {
+    --tw-text-opacity: 1;
+    color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
-.mb-70 {
-    margin-bottom: 70px!important;
-}
-.row {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: calc(var(--bs-gutter-y) * -1);
-    margin-right: calc(var(--bs-gutter-x)/ -2);
-    margin-left: calc(var(--bs-gutter-x)/ -2);
-}
-@media (min-width: 992px) {
-    .col-lg-2 {
-        flex: 0 0 auto;
-        width: 16.6666666667%;
-    }
+:is(.dark [data-hs-tab].active .dark\:hs-tab-active\:text-blue-500) {
+    --tw-text-opacity: 1;
+    color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
-.mb-15 {
-    margin-bottom: 15px!important;
-}
-.color-white {
-    color: #b9e0f2;
-}
-.color-white {
-    color: #b9e0f2!important;
-}
-.animate__fadeInUp {
-    animation-name: fadeInUp;
-}
-h5, h6 {
-    font-family: Noto Sans,sans-serif;
-    font-weight: 700;
-    color: #000;
-}
-h5 {
-    font-size: 20px;
-    line-height: 27px;
+[data-hs-tab].active .hs-tab-active\:text-blue-600 {
+    --tw-text-opacity: 1;
+    color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
-.swiper-button-prev-style-1 {
-    left: 0;
-    transition: all .2s;
-    height: 32px;
-    width: 32px;
-    top: 50%;
-}
-
-.swiper-button-prev {
-    position: absolute;
-    width: calc(var(--swiper-navigation-size)/ 44 * 27);
-    height: var(--swiper-navigation-size);
-    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
-    z-index: 10;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--swiper-navigation-color,var(--swiper-theme-color));
-
-    left: 10px;
-    right: auto;
-    background: url(/_next/static/media/prev.93ac0394.svg) no-repeat 0 0;
-
-    top: 50%;
+:is(.dark .dark\:text-gray-200) {
+    --tw-text-opacity: 1;
+    color: rgb(229 231 235 / var(--tw-text-opacity));
 }

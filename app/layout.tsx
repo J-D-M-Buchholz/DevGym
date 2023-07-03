@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { AuthProvider } from "@/components/AuthContext"
 import Dashboard from "@/components/Dashboard/Dashboard"
+import Footer from "@/components/Footer/Footer"
 
 export const metadata: Metadata = {
   title: {
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <SiteHeader />
                 <div className="flex-1">{children}</div>
               </div>
+              <Footer />
             </ThemeProvider>
           </AuthProvider>
         </body>

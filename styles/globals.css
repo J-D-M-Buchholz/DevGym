@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -69,6 +75,7 @@
     --radius: 0.5rem;
   }
 }
+
 
 @layer base {
   * {
