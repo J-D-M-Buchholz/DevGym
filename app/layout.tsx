@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { AuthProvider } from "@/components/AuthContext"
-import Dashboard from "@/components/Dashboard/Dashboard"
-import Footer from "@/components/Footer/Footer"
+import Dashboard from "@/components/dashboard/Dashboard"
+import Footer from "@/components/footer/Footer"
 
 export const metadata: Metadata = {
   title: {
