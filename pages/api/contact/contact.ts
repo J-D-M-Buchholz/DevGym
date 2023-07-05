@@ -1,15 +1,27 @@
 //Test API
 
-import express from 'express';
+import { contactController } from "@/controller/contact/contactController"
+import connectDB from "@/db/connect"
+import express from "express"
 
-const app = express();
+const app = express()
 
-app.get('/api/contact/contact', (req: express.Request, res: express.Response) => {
-    res.send('Get Hello');
-});
+// app.get('/api/contact/contact', (req: express.Request, res: express.Response) => {
+//     res.send('Get Hello');
+// });
 
-app.post('/api/contact/contact', (req: express.Request, res: express.Response) => {
-    res.send('Post Hello');
-});
+// app.post('/api/contact/contact', (req: express.Request, res: express.Response) => {
+//     res.send('Post Hello');
+// });
 
-export default app;
+app.post("/api/contact/contact", contactController)
+;(async () => {
+  try {
+    await connectDB(process.env.MONGO_URI)
+    console.log("MongoDB is connected !")
+  } catch (error) {
+    console.log(error)
+  }
+})()
+
+export default app
