@@ -11,8 +11,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: "",
-    github: "",
-    docs: "",
+    signin: "/signin",
+    signup: "/signup",
   },
 }

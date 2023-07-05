@@ -1,4 +1,6 @@
+"use client"
 import Link from "next/link"
+import { useState } from "react"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
@@ -7,6 +9,17 @@ import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SiteHeader() {
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  }
+
+  const closeModal = () => {
+    setModalOpen(false);
+  }
+
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
@@ -14,17 +27,15 @@ export function SiteHeader() {
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
               <Link
-                href={siteConfig.links.docs}
-                target="_blank"
+                href={siteConfig.links.signin}
                 rel="noreferrer"
                 className={buttonVariants({ variant: "outline" })}
               >
                 Login
               </Link>
               <Link
-                target="_blank"
                 rel="noreferrer"
-                href={siteConfig.links.github}
+                href={siteConfig.links.signup}
                 className={buttonVariants({ variant: "outline" })}
               >
                 Register

@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="dark:bg-slate-900 bg-gray-200">
       <div className="max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
           <div className="col-span-full lg:col-span-1">
@@ -104,7 +104,7 @@ const Footer = () => {
                     type="text"
                     id="hero-input"
                     name="hero-input"
-                    className="py-3 px-4 block w-full border-transparent shadow-sm rounded-md focus:z-10 dark:text-gray-400 text-gray-500 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 bg-gray-100"
+                    className="py-3 px-4 block w-full border-transparent shadow-sm rounded-md focus:z-10 dark:text-gray-400 text-gray-500 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-800 bg-gray-100"
                     placeholder="Enter your email"
                   />
                 </div>
