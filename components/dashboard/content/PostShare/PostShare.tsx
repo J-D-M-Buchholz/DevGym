@@ -1,5 +1,7 @@
-"use client";
-import React, { useState, useRef } from "react";
+"use client"
+
+import React, { useRef, useState } from "react"
+import { CldUploadButton } from "next-cloudinary"
 import {
   FaCalendar,
   FaImage,
@@ -7,51 +9,52 @@ import {
   FaShare,
   FaTimes,
   FaVideo,
-} from "react-icons/fa";
-import "./PostShare.css";
-import { useAuth } from "@/components/AuthContext";
+} from "react-icons/fa"
+
+import "./PostShare.css"
+import { useAuth } from "@/components/AuthContext"
 
 const PostShare = () => {
-  const [image, setImage] = useState<File | null>(null);
-  const imageRef = useRef<HTMLInputElement>(null);
-  const desc = useRef<HTMLInputElement>(null);
-  const { responseData } = useAuth();
+  const [image, setImage] = useState<File | null>(null)
+  const imageRef = useRef<HTMLInputElement>(null)
+  const desc = useRef<HTMLInputElement>(null)
+  const { responseData } = useAuth()
 
   const onImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
-      let img = event.target.files[0];
-      setImage(img);
+      let img = event.target.files[0]
+      setImage(img)
     }
-  };
+  }
 
   const handleSubmit = async (event: any) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    const user = responseData?.user;
+    const user = responseData?.user
     const newPost: { userId: string; desc: any; image?: string } = {
       userId: user._id,
       desc: desc.current?.value,
-    };
+    }
 
     if (image) {
-      const data = new FormData();
-      const fileName = Date.now() + image.name;
-      data.append("name", fileName);
-      data.append("file", image);
-      newPost.image = fileName;
+      const data = new FormData()
+      const fileName = Date.now() + image.name
+      data.append("name", fileName)
+      data.append("file", image)
+      newPost.image = fileName
 
       try {
         const uploadResponse = await fetch("/api/dashboard/upload", {
           method: "POST",
           body: data,
-        });
+        })
         if (uploadResponse.ok) {
-          console.log("Image uploaded successfully");
+          console.log("Image uploaded successfully")
         } else {
-          console.log("Image upload failed", data);
+          console.log("Image upload failed", data)
         }
       } catch (error) {
-        console.log("Image upload failed:", error);
+        console.log("Image upload failed:", error)
       }
     }
 
@@ -62,17 +65,17 @@ const PostShare = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(newPost),
-      });
+      })
 
       if (postResponse.ok) {
-        console.log("Post created successfully");
+        console.log("Post created successfully")
       } else {
-        console.log("Failed to create post");
+        console.log("Failed to create post")
       }
     } catch (error) {
-      console.log("Failed to create post:", error);
+      console.log("Failed to create post:", error)
     }
-  };
+  }
 
   return (
     <div className="PostShare">
@@ -83,6 +86,7 @@ const PostShare = () => {
         width={100}
         height={100}
       />
+<CldUploadButton uploadPreset="dkzi0oh4l" />
       <div>
         <input ref={desc} required type="text" placeholder="Post it..." />
         <div className="postOptions">
@@ -115,6 +119,7 @@ const PostShare = () => {
               name="myImage"
               ref={imageRef}
               onChange={onImageChange}
+              multiple
             />
           </div>
         </div>
@@ -126,7 +131,7 @@ const PostShare = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PostShare;
+export default PostShare
