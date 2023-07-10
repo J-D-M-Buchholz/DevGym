@@ -1,9 +1,9 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { FcGoogle } from "react-icons/fc"
-
+import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthContext"
 
 const initialState = {
@@ -17,7 +17,8 @@ const initialState = {
 const Page = () => {
   const [data, setData] = useState(initialState)
   const [confirmPassword, setConfirmPassword] = useState(true)
-  const { login } = useAuth()
+  const { login, isLoggedIn } = useAuth()
+  const { push } = useRouter (); 
 
   async function signUp() {
     try {
@@ -45,6 +46,12 @@ const Page = () => {
     }
   }
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      push("/");
+    }
+  }, [isLoggedIn, push]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value })
   }
@@ -58,11 +65,6 @@ const Page = () => {
     } else {
       setConfirmPassword(false)
     }
-  }
-
-  const resetForm = () => {
-    setData(initialState)
-    setConfirmPassword(true)
   }
 
   return (

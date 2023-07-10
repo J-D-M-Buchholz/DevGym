@@ -1,17 +1,18 @@
 "use client"
 
-import React, { useState } from "react"
-import Link from "next/link"
-import { FcGoogle } from "react-icons/fc"
-
-import { useAuth } from "@/components/AuthContext"
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { FcGoogle } from "react-icons/fc";
+import { useAuth } from "@/components/AuthContext";
 
 const DashboardAuth: React.FC = () => {
   const [data, setData] = useState({
     username: "",
     password: "",
-  })
-  const { login } = useAuth()
+  });
+  const { login, isLoggedIn } = useAuth();
+  const { push } = useRouter (); 
 
   async function userLogin() {
     try {
@@ -27,27 +28,34 @@ const DashboardAuth: React.FC = () => {
             password: data.password,
           }),
         }
-      )
-      const responseData = await response.json()
-      console.log(responseData)
+      );
+      const responseData = await response.json();
+      console.log(responseData);
       if (responseData.user) {
-        login(responseData)
+        login(responseData);
       } else {
-        console.log("Login fail!")
+        console.log("Login fail!");
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      push("/");
+    }
+  }, [isLoggedIn, push]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [e.target.name]: e.target.value })
-  }
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    userLogin()
-  }
+    e.preventDefault();
+    userLogin();
+  };
+
 
   return (
     <div className="max-w-[30rem] mx-auto mt-[5rem] bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-slate-900 dark:border-gray-700">
