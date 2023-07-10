@@ -1,7 +1,7 @@
-"use client";
-import React, { useState } from "react";
-import "./DashboardAuth.css";
-import { useAuth } from "@/components/AuthContext";
+"use client"
+import React, { useState } from "react"
+import "./DashboardAuth.css"
+import { useAuth } from "@/components/AuthContext"
 
 const initialState = {
   firstname: "",
@@ -9,14 +9,14 @@ const initialState = {
   username: "",
   password: "",
   confirmpass: "",
-};
+}
 
 const DashboardAuth: React.FC = () => {
-  const [isSignUp, setIsSignUp] = useState(true);
-  const [data, setData] = useState(initialState);
-  const [confirmPassword, setConfirmPassword] = useState(true);
-  const [responseMessage, setResponseMessage] = useState("");
-  const { login } = useAuth();
+  const [isSignUp, setIsSignUp] = useState(true)
+  const [data, setData] = useState(initialState)
+  const [confirmPassword, setConfirmPassword] = useState(true)
+  const [responseMessage, setResponseMessage] = useState("")
+  const { login } = useAuth()
 
   async function signUp() {
     try {
@@ -31,16 +31,16 @@ const DashboardAuth: React.FC = () => {
           lastname: data.lastname,
           password: data.password,
         }),
-      });
-      const responseData = await response.json();
-      console.log(responseData);
+      })
+      const responseData = await response.json()
+      console.log(responseData)
       if (responseData.user) {
-        login(responseData);
+        login(responseData)
       } else {
-        setResponseMessage(responseData.message);
+        setResponseMessage(responseData.message)
       }
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
@@ -58,37 +58,37 @@ const DashboardAuth: React.FC = () => {
             password: data.password,
           }),
         }
-      );
-      const responseData = await response.json();
-      console.log(responseData);
+      )
+      const responseData = await response.json()
+      console.log(responseData)
       if (responseData.user) {
-        login(responseData);
+        login(responseData)
       } else {
-        setResponseMessage(responseData);
+        setResponseMessage(responseData)
       }
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
   const handleChange = (e: any) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
+    setData({ ...data, [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = (e: any) => {
-    setConfirmPassword(true);
-    e.preventDefault();
+    setConfirmPassword(true)
+    e.preventDefault()
     if (isSignUp) {
-      data.password === data.confirmpass ? signUp() : setConfirmPassword(false);
+      data.password === data.confirmpass ? signUp() : setConfirmPassword(false)
     } else {
-      userLogin();
+      userLogin()
     }
-  };
+  }
 
   const resetForm = () => {
-    setConfirmPassword(true);
-    setData(initialState);
-  };
+    setConfirmPassword(true)
+    setData(initialState)
+  }
 
   return (
     <div className="Auth">
@@ -124,14 +124,19 @@ const DashboardAuth: React.FC = () => {
           )}
           <div>
             <input
-              type="text"
+              type="email"
               className="infoInput"
               name="username"
-              placeholder="Usernames"
+              placeholder="Username/Email"
               onChange={handleChange}
               value={data.username}
             />
           </div>
+          {data.username && !data.username.includes("@") && (
+            <p className="text-red-500 text-xs mt-1">
+              Please enter a valid email address.
+            </p>
+          )}
           <div>
             <input
               type="password"
@@ -152,7 +157,8 @@ const DashboardAuth: React.FC = () => {
               />
             )}
           </div>
-          <span className="warningMessage"
+          <span
+            className="warningMessage"
             style={{
               display: responseMessage ? "block" : "none",
             }}
@@ -160,7 +166,8 @@ const DashboardAuth: React.FC = () => {
             {responseMessage}
           </span>
           {isSignUp ? (
-            <span className="warningMessage"
+            <span
+              className="warningMessage"
               style={{
                 display: confirmPassword ? "none" : "block",
               }}
@@ -168,7 +175,8 @@ const DashboardAuth: React.FC = () => {
               Confirm password is not the same!!!
             </span>
           ) : (
-            <span className="warningMessage"
+            <span
+              className="warningMessage"
               style={{
                 display: responseMessage ? "block" : "none",
               }}
@@ -180,8 +188,8 @@ const DashboardAuth: React.FC = () => {
             <span
               style={{ fontSize: "12px", cursor: "pointer" }}
               onClick={() => {
-                setIsSignUp(!isSignUp);
-                resetForm();
+                setIsSignUp(!isSignUp)
+                resetForm()
               }}
             >
               {isSignUp
@@ -195,7 +203,7 @@ const DashboardAuth: React.FC = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DashboardAuth;
+export default DashboardAuth
