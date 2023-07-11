@@ -91,23 +91,23 @@ const DashboardAuth: React.FC = () => {
   }
 
   return (
-    <div className="Auth">
-      <div className="top">
+    <div className="dash_Auth">
+      <div className="dash_top">
         <img src="/muskeln.png" alt="" height={100} width={100} />
-        <div className="Webname">
+        <div className="dash_Webname">
           <h1>DevGym</h1>
           <h2>Train your skills...</h2>
         </div>
       </div>
-      <div className="buttom">
-        <form className="infoForm authForm" onSubmit={handleSubmit}>
+      <div className="dash_buttom">
+        <form className="dash_infoForm dash_authForm" onSubmit={handleSubmit}>
           <h3>{isSignUp ? "Sign up" : "Log In"}</h3>
           {isSignUp && (
             <div>
               <input
                 type="text"
                 placeholder="First Name"
-                className="infoInput"
+                className="dash_infoInput"
                 name="firstname"
                 onChange={handleChange}
                 value={data.firstname}
@@ -115,7 +115,7 @@ const DashboardAuth: React.FC = () => {
               <input
                 type="text"
                 placeholder="Last Name"
-                className="infoInput"
+                className="dash_infoInput"
                 name="lastname"
                 onChange={handleChange}
                 value={data.lastname}
@@ -125,7 +125,7 @@ const DashboardAuth: React.FC = () => {
           <div>
             <input
               type="email"
-              className="infoInput"
+              className="dash_infoInput"
               name="username"
               placeholder="Username/Email"
               onChange={handleChange}
@@ -133,14 +133,14 @@ const DashboardAuth: React.FC = () => {
             />
           </div>
           {data.username && !data.username.includes("@") && (
-            <p className="text-red-500 text-xs mt-1">
+            <p className="dash_text-red-500 text-xs mt-1">
               Please enter a valid email address.
             </p>
           )}
           <div>
             <input
               type="password"
-              className="infoInput"
+              className="dash_infoInput"
               name="password"
               placeholder="Password"
               onChange={handleChange}
@@ -149,7 +149,7 @@ const DashboardAuth: React.FC = () => {
             {isSignUp && (
               <input
                 type="password"
-                className="infoInput"
+                className="dash_infoInput"
                 name="confirmpass"
                 placeholder="Confirm Password"
                 onChange={handleChange}
@@ -158,7 +158,7 @@ const DashboardAuth: React.FC = () => {
             )}
           </div>
           <span
-            className="warningMessage"
+            className="dash_warningMessage"
             style={{
               display: responseMessage ? "block" : "none",
             }}
@@ -167,7 +167,7 @@ const DashboardAuth: React.FC = () => {
           </span>
           {isSignUp ? (
             <span
-              className="warningMessage"
+              className="dash_warningMessage"
               style={{
                 display: confirmPassword ? "none" : "block",
               }}
@@ -176,7 +176,7 @@ const DashboardAuth: React.FC = () => {
             </span>
           ) : (
             <span
-              className="warningMessage"
+              className="dash_warningMessage"
               style={{
                 display: responseMessage ? "block" : "none",
               }}
@@ -197,7 +197,7 @@ const DashboardAuth: React.FC = () => {
                 : "Don't have an account? Sign Up now!"}
             </span>{" "}
           </div>
-          <button className="button infoButton" type="submit">
+          <button className="dash_button dash_infoButton" type="submit">
             {isSignUp ? "Signup" : "Login"}
           </button>
         </form>

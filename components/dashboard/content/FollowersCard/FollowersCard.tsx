@@ -10,19 +10,19 @@ interface Follower {
 
 const FollowersCard: React.FC = () => {
   return (
-    <div className="FollowersCard">
+    <div className="dash_FollowersCard">
       <h1>Followers...</h1>
       {Followers.map((follower: Follower, id: number) => {
         return (
-          <div className="follower" key={id}>
+          <div className="dash_follower" key={id}>
             <div>
-              <img src={follower.img} alt="" className="followerImage" />
-              <div className="name">
+              <img src={follower.img} alt="" className="dash_followerImage" />
+              <div className="dash_name">
                 <span>{follower.name}</span>
                 <span>@{follower.username}</span>
               </div>
             </div>
-            <button className="button fc-button">Follow</button>
+            <button className="dash_button dash_fc-button">Follow</button>
           </div>
         );
       })}

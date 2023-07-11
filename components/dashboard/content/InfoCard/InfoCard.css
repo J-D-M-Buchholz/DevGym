@@ -1,4 +1,4 @@
-.InfoCard {
+.dash_InfoCard {
   background-color: whitesmoke;
   border-radius: 1rem;
   display: flex;
@@ -8,17 +8,17 @@
   width: 90%;
 }
 
-.infoHead {
+.dash_infoHead {
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
 
-.infoHead > div:hover {
+.dash_infoHead > div:hover {
   cursor: pointer;
 }
 
-.logout-button {
+.dash_logout-button {
   align-self: flex-end;
   height: 2rem;
   margin-top: 6rem;

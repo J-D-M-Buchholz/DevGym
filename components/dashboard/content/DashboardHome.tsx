@@ -14,7 +14,7 @@ const DashboardHome: React.FC<DashboardHomeProps> = ({
   setShowProfile,
 }) => {
   return (
-    <div className="Home">
+    <div className="dash_Home">
       <ProfileSection
         showProfile={showProfile}
         setShowProfile={setShowProfile}

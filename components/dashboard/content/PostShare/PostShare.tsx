@@ -78,38 +78,38 @@ const PostShare = () => {
   }
 
   return (
-    <div className="PostShare">
+    <div className="dash_PostShare">
       <img
         src="/profile.jpg"
         alt="Profile"
-        className="PostShare-img"
+        className="dash_PostShare-img"
         width={100}
         height={100}
       />
 <CldUploadButton uploadPreset="dkzi0oh4l" />
       <div>
         <input ref={desc} required type="text" placeholder="Post it..." />
-        <div className="postOptions">
+        <div className="dash_postOptions">
           <div
-            className="button option"
+            className="dash_button dash_option"
             onClick={() => imageRef.current?.click()}
           >
             <FaImage />
             Photo
           </div>
-          <div className="button option">
+          <div className="dash_button dash_option">
             <FaVideo />
             Video
           </div>{" "}
-          <div className="button option">
+          <div className="dash_button dash_option">
             <FaLocationArrow />
             Location
           </div>{" "}
-          <div className="button option">
+          <div className="dash_button dash_option">
             <FaCalendar />
             Calendar
           </div>
-          <button className="button" onClick={handleSubmit}>
+          <button className="dash_button" onClick={handleSubmit}>
             <FaShare />
             Share
           </button>
@@ -124,7 +124,7 @@ const PostShare = () => {
           </div>
         </div>
         {image && (
-          <div className="previewImage">
+          <div className="dash_previewImage">
             <FaTimes onClick={() => setImage(null)} />
             <img src={URL.createObjectURL(image)} alt="" />
           </div>

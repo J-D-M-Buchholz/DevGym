@@ -12,17 +12,17 @@ const Dashboard: React.FC = () => {
   const { isLoggedIn } = useAuth();
   return (
     <div>
-      <div className="icon" onClick={() => setShowDiv(!showDiv)}>
+      <div className="dash_icon" onClick={() => setShowDiv(!showDiv)}>
         <img
           src="/benutzer.svg"
           alt="Person"
-          className="person-icon"
+          className="dash_person-icon"
           width={50}
           height={50}
         />
       </div>
       {showDiv && (
-        <div className="rounded-div">
+        <div className="dash_rounded-div">
           {!isLoggedIn ? (
             <DashboardAuth />
           ) : showProfile ? (

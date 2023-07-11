@@ -1,8 +1,8 @@
-.detail{
+.dash_detail{
   color: white;
 }
 
-.Post {
+.dash_Post {
   background: linear-gradient(90deg, gray, lightgray 100%);
   border-radius: 1rem;
   display: flex;
@@ -11,18 +11,18 @@
   padding: 1rem;
 }
 
-.Post > img {
+.dash_Post > img {
   border-radius: 0.3125rem;
   max-height: 20rem;
   width: 100%;
 }
 
-.postReact {
+.dash_postReact {
   align-items: flex-start;
   display: flex;
   gap: 1.5rem;
 }
 
-.reactIcon {
+.dash_reactIcon {
   cursor: pointer;
 }
