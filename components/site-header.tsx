@@ -1,24 +1,12 @@
 "use client"
 import Link from "next/link"
-import { useState } from "react"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SiteHeader() {
-
-  const [isModalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  }
-
-  const closeModal = () => {
-    setModalOpen(false);
-  }
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">

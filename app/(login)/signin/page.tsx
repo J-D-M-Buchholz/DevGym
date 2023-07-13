@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const page = () => {
   return (
-          <div className="max-w-[30rem] mx-auto mt-[20rem] bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-slate-900 dark:border-gray-700">
+          <div className="max-w-[30rem] mx-auto mt-[10rem] bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-slate-900 dark:border-gray-700">
             <div className="p-4 sm:p-7">
               <div className="text-center">
                 <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
