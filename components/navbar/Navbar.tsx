@@ -74,7 +74,7 @@ export function Navbar() {
               <ListItem href="/" title="What We Do">
                 We're here to help and build a Caarer for everyones suits.
               </ListItem>
-              <ListItem href="/" title="Qualification">
+              <ListItem href="/about/qualification" title="Qualification">
                 Get your qualification.
               </ListItem>
               <ListItem href="/about" title="Our Team">
