@@ -58,23 +58,22 @@ const DashboardAuth: React.FC = () => {
 
 
   return (
-    <div className="max-w-[30rem] mx-auto mt-[5rem] bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-slate-900 dark:border-gray-700">
-      <div className="p-4 sm:p-7">
-        <div className="text-center">
-          <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
-            Sign in
-          </h1>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-            Don't have an account yet?
-            <Link
-              className="text-blue-600 decoration-2 hover:underline font-medium"
-              href="/signup"
-            >
-              {" "}
-              Sign up here
-            </Link>
-          </p>
-        </div>
+          <div className="max-w-[30rem] mx-auto mt-[10rem] bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-slate-900 dark:border-gray-700">
+            <div className="p-4 sm:p-7">
+              <div className="text-center">
+                <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
+                  Sign in
+                </h1>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  Don't have an account yet?
+                  <Link
+                    className="text-blue-600 decoration-2 hover:underline font-medium"
+                    href="/signup"
+                  >
+                    {" "}Sign up here
+                  </Link>
+                </p>
+              </div>
 
         <div className="mt-5">
           <button
@@ -96,7 +95,7 @@ const DashboardAuth: React.FC = () => {
                   htmlFor="username"
                   className="block text-sm mb-2 dark:text-white"
                 >
-                  Username/Email
+                  E-Mail Address
                 </label>
                 <div className="relative">
                   <input

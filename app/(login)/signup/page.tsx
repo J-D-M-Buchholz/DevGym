@@ -68,23 +68,18 @@ const Page = () => {
   }
 
   return (
-    <div className="max-w-[30rem] mx-auto mt-[5rem] bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-slate-900 dark:border-gray-700">
-      <div className="p-4 sm:p-7">
-        <div className="text-center">
-          <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
-            Sign up
-          </h1>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-            Already have an account?
-            <Link
-              className="text-blue-600 decoration-2 hover:underline font-medium"
-              href="/signin"
-            >
-              {" "}
-              Sign in here
-            </Link>
-          </p>
-        </div>
+
+      <div className="max-w-[30rem] mx-auto mt-[10rem] mb-[10rem] bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-slate-900 dark:border-gray-700">
+        <div className="p-4 sm:p-7">
+          <div className="text-center">
+            <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Sign up</h1>
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+              Already have an account?
+              <Link className="text-blue-600 decoration-2 hover:underline font-medium" href="/signin">
+                {" "}Sign in here
+              </Link>
+            </p>
+          </div>
 
         <div className="mt-5">
           <button
@@ -101,43 +96,45 @@ const Page = () => {
 
           <form onSubmit={handleSubmit}>
             <div className="grid gap-y-4">
-              <div>
-                <label
-                  htmlFor="firstname"
-                  className="block text-sm mb-2 dark:text-white"
-                >
-                  First Name
-                </label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    id="firstname"
-                    name="firstname"
-                    value={data.firstname}
-                    onChange={handleChange}
-                    className="py-3 px-4 block w-full rounded-md focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-800 bg-gray-100 dark:border-gray-700 dark:text-gray-400"
-                    required
-                  />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    htmlFor="firstname"
+                    className="block text-sm mb-2 dark:text-white"
+                  >
+                    First Name
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="firstname"
+                      name="firstname"
+                      value={data.firstname}
+                      onChange={handleChange}
+                      className="py-3 px-4 block w-full rounded-md focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-800 bg-gray-100 dark:border-gray-700 dark:text-gray-400"
+                      required
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <label
-                  htmlFor="lastname"
-                  className="block text-sm mb-2 dark:text-white"
-                >
-                  Last Name
-                </label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    id="lastname"
-                    name="lastname"
-                    value={data.lastname}
-                    onChange={handleChange}
-                    className="py-3 px-4 block w-full rounded-md focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-800 bg-gray-100 dark:border-gray-700 dark:text-gray-400"
-                    required
-                  />
+                <div>
+                  <label
+                    htmlFor="lastname"
+                    className="block text-sm mb-2 dark:text-white"
+                  >
+                    Last Name
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="lastname"
+                      name="lastname"
+                      value={data.lastname}
+                      onChange={handleChange}
+                      className="py-3 px-4 block w-full rounded-md focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-800 bg-gray-100 dark:border-gray-700 dark:text-gray-400"
+                      required
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -146,7 +143,7 @@ const Page = () => {
                   htmlFor="username"
                   className="block text-sm mb-2 dark:text-white"
                 >
-                  Username/Email
+                  E-Mail Address
                 </label>
                 <div className="relative">
                   <input
