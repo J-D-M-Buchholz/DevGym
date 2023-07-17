@@ -2,7 +2,7 @@ import connectDB from "@/db/connect";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import bodyParser from 'body-parser';
+import multer from 'multer';
 import { uploadFile } from "@/controller/dashboard/uploadController";
 
 const app = express();
@@ -11,10 +11,9 @@ dotenv.config();
 
 app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+const upload = multer({ dest: '/upload' });
 
-app.post("/api/dashboard/upload", uploadFile);
+app.post("/api/dashboard/upload", upload.single('file'), uploadFile);
 
 const startServer = async (): Promise<void> => {
   try {

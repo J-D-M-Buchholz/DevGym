@@ -1,22 +1,23 @@
-.LogoSearch {
+.dash_LogoSearch {
   display: flex;
   gap: 0.75rem;
 }
 
-.Search {
+.dash_Search {
   background-color: whitesmoke;
   border-radius: 0.5rem;
   display: flex;
   padding: 0.1rem;
 }
 
-.Search > input {
+.dash_Search > input {
+  width: 100%;
   background-color: transparent;
   border: none;
   outline: none;
 }
 
-.search-icon {
+.dash_search-icon {
   align-items: center;
   background: linear-gradient(90deg, gray, lightgray 100%);
   border-radius: 0.5rem;
@@ -26,7 +27,7 @@
   padding: 0.5rem;
 }
 
-.search-icon:hover {
+.dash_search-icon:hover {
   background: transparent;
   color: gray;
   cursor: pointer;

@@ -1,4 +1,4 @@
-.Auth {
+.dash_Auth {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -7,22 +7,22 @@
   position: relative;
 }
 
-.Auth > div {
+.dash_Auth > div {
   align-items: center;
   display: flex;
   justify-content: center;
 }
 
-.top {
+.dash_top {
   gap: 2rem;
 }
 
-.top > img {
+.dash_top > img {
   height: 7rem;
   width: 7rem;
 }
 
-.Webname > h1 {
+.dash_Webname > h1 {
   background-repeat: repeat;
   background-size: 100%;
   background: linear-gradient(90deg, gray, lightgray);
@@ -34,30 +34,30 @@
   font-size: 3rem;
 }
 
-.Webname > h2 {
+.dash_Webname > h2 {
   color: white;
   font-size: 1.5rem;
 }
 
-.authForm {
+.dash_authForm {
   background: linear-gradient(90deg, gray, lightgray);
   border-radius: 1rem;
   padding: 1rem;
 }
 
-.authForm > div {
+.dash_authForm > div {
   align-items: center;
   justify-content: center;
   width: 100%;
 }
 
-.infoButton {
+.dash_infoButton {
   align-self: flex-end;
   height: 2rem;
   width: 6rem;
 }
 
-.infoForm {
+.dash_infoForm {
   color: white;
   align-items: center;
   display: flex;
@@ -66,25 +66,42 @@
   justify-content: center;
 }
 
-.infoForm > div {
+.dash_infoForm > div {
   display: flex;
   gap: 1rem;
   height: 2rem;
   width: 90%;
 }
 
-.infoInput {
+.dash_infoInput {
   background-color: whitesmoke;
   border: none;
   border-radius: 0.5rem;
   flex: 1;
   outline: none;
-  padding: 1.25rem;
+  padding: 1rem;
 }
 
-.warnigMessage {
+.dash_warnigMessage {
   color: "red";
   font-size: "12px";
   align-self: "flex-end";
   margin-right: "5px";
+}
+
+.dash_infoForm > .dash_button {
+  align-items: center;
+  background: linear-gradient(90deg, gray, lightgray 100%);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  transition: all 100ms ease-out;
+}
+
+.dash_infoForm > .dash_button:hover {
+  background: transparent;
+  color: gray;
+  cursor: pointer;
 }

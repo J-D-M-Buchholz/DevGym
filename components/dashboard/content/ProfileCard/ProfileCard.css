@@ -1,16 +1,16 @@
-.ProfileCard .ProfileButton {
+.dash_ProfileCard .dash_ProfileButton {
   background: linear-gradient(90deg, gray, lightgray 100%);
   border-radius: 0.5rem;
   color: white;
   padding: 0.25rem;
 }
-.ProfileCard .ProfileButton:hover {
+.dash_ProfileCard .dash_ProfileButton:hover {
   background: transparent;
   color: gray;
   cursor: pointer;
 }
 
-.ProfileCard {
+.dash_ProfileCard {
   background: whitesmoke;
   border-radius: 1.5rem;
   display: flex;
@@ -21,7 +21,7 @@
   width: 100%;
 }
 
-.ProfileCard > span {
+.dash_ProfileCard > span {
   align-self: center;
   color: gray;
   cursor: pointer;
@@ -29,7 +29,7 @@
   margin-bottom: 1rem;
 }
 
-.ProfileImages {
+.dash_ProfileImages {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -37,11 +37,11 @@
   position: relative;
 }
 
-.ProfileImages1 {
+.dash_ProfileImages1 {
   width: 100%;
 }
 
-.ProfileImages2 {
+.dash_ProfileImages2 {
   border-radius: 50%;
   bottom: -3rem;
   box-shadow: lightgrey;
@@ -49,7 +49,7 @@
   width: 6rem;
 }
 
-.ProfileName {
+.dash_ProfileName {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -57,11 +57,11 @@
   margin-top: 3rem;
 }
 
-.ProfileName > span:nth-of-type(1) {
+.dash_ProfileName > span:nth-of-type(1) {
   font-weight: bold;
 }
 
-.followStatus {
+.dash_followStatus {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -69,12 +69,12 @@
   justify-content: center;
 }
 
-.followStatus > hr {
+.dash_followStatus > hr {
   border: solid lightgray 1px;
   width: 85%;
 }
 
-.followStatus > div {
+.dash_followStatus > div {
   align-items: center;
   display: flex;
   gap: 1rem;
@@ -82,7 +82,7 @@
   width: 80%;
 }
 
-.follow {
+.dash_follow {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -90,16 +90,16 @@
   justify-content: center;
 }
 
-.follow > span:nth-of-type(1) {
+.dash_follow > span:nth-of-type(1) {
   font-weight: bold;
 }
 
-.follow > span:nth-of-type(2) {
+.dash_follow > span:nth-of-type(2) {
   color: gray;
   font-size: 0.8125rem;
 }
 
-.vl {
+.dash_vl {
   border-left: solid lightgray 0.125rem;
   height: 150%;
 }

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Email } from './Content/email'
-import { Reachout } from './Content/reachout'
+import { Email } from './content/email'
+import { Reachout } from './content/reachout'
 
 
-export const ContactContent = () => {
+const ContactContent = () => {
   return (
     <div className='max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto'>
       <div className='max-w-2xl lg:max-w-5xl mx-auto'>
@@ -19,3 +19,5 @@ export const ContactContent = () => {
     </div>
   )
 }
+
+export default ContactContent

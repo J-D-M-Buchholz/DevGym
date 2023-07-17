@@ -15,23 +15,23 @@ interface PostProps {
 
 const Post: React.FC<PostProps> = ({ data }) => {
   return (
-    <div className="Post">
+    <div className="dash_Post">
       <img src={data.img} alt="" />
       <span style={{ color: 'white', fontSize: '1rem' }}>
         {data.likes} likes
       </span>
-      <div className="postReact">
+      <div className="dash_postReact">
         <img
           src={data.liked ? '/herz.png' : '/traurig.png'}
           alt=""
           width={30}
           height={30}
-          className='reactIcon'
+          className="dash_reactIcon"
         />
-        <img src="/kommentar.png" alt="" width={30} height={30} className='reactIcon' />
-        <img src="teilen.png" alt="" width={30} height={30} className='reactIcon' />
+        <img src="/kommentar.png" alt="" width={30} height={30} className="dash_reactIcon" />
+        <img src="teilen.png" alt="" width={30} height={30} className="dash_reactIcon" />
       </div>
-      <div className="detail">
+      <div className="dash_detail">
         <span>
           <b>{data.name}</b>
         </span>

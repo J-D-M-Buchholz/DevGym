@@ -14,7 +14,7 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({
   setShowProfile,
 }) => {
   return (
-    <div className="Profile">
+    <div className="dash_Profile">
       <ProfileCard showProfile={showProfile} setShowProfile={setShowProfile} />
       <Search />
       <FollowersCard />
