@@ -1,5 +1,6 @@
 .dash_PostShare {
-  background-color: whitesmoke;
+  background: linear-gradient(to left,  rgb(29, 15, 163), rgb(0, 130, 173));
+  box-shadow: inset 0 4px 30px rgba(0, 0, 0, 0.25);
   border-radius: 1rem;
   display: flex;
   gap: 1rem;
@@ -20,7 +21,6 @@
 }
 
 .dash_PostShare > div > input {
-  background-color: whitesmoke;
   border: none;
   border-radius: 0.625rem;
   font-size: 1.0625rem;
@@ -53,13 +53,19 @@
 .dash_previewImage > img {
   border-radius: 0.3125rem;
   max-height: 20rem;
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
 }
 
 .dash_previewImage > svg {
+  color: white;
   cursor: pointer;
   position: absolute;
+  font-size: 2rem;
   right: 1rem;
   top: 0.3125rem;
+}
+
+.dash_previewImage > svg:hover {
+  color: rgba(163, 89, 15);
 }

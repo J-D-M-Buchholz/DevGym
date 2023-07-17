@@ -16,7 +16,7 @@ interface PostProps {
 const Post: React.FC<PostProps> = ({ data }) => {
   return (
     <div className="dash_Post">
-      <img src={data.img} alt="" />
+      <img src={data.img} alt=""/>
       <span style={{ color: 'white', fontSize: '1rem' }}>
         {data.likes} likes
       </span>

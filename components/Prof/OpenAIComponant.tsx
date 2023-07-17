@@ -161,17 +161,7 @@ const OpenAIComponent = () => {
     if (!openaiAPIKeyIsValidated) {
       return (
         <div className="gpt_container">
-          <h1 className="gpt_container_header">
-            <button type="button" className="gpt_exit_button" onClick={handlePopup}>
-              X
-            </button>
-            <button
-              type="button"
-              className="gpt_language_button"
-              onClick={handleLanguage}
-            >
-              {languages[languageIndex]}
-            </button>
+          <div className="gpt_container_header">
             <Image
               src={ZippMouth}
               height={200}
@@ -179,8 +169,22 @@ const OpenAIComponent = () => {
               alt="Example Image"
               className="gpt_image"
             />
-            Prof.Dr.GPT
-          </h1>
+            <h1>Prof.Dr.GPT</h1>
+            <button
+              type="button"
+              className="gpt_language_button"
+              onClick={handleLanguage}
+            >
+              {languages[languageIndex]}
+            </button>
+            <button
+              type="button"
+              className="gpt_exit_button"
+              onClick={handlePopup}
+            >
+              X
+            </button>
+          </div>
           <div className="gpt_container_image">
             <Image
               src={EquationMeme}
@@ -215,17 +219,7 @@ const OpenAIComponent = () => {
     if (chatOrCode) {
       return (
         <div className="gpt_container">
-          <h1 className="gpt_container_header">
-            <button type="button" className="gpt_exit_button" onClick={handlePopup}>
-              X
-            </button>
-            <button
-              type="button"
-              className="gpt_language_button"
-              onClick={handleLanguage}
-            >
-              {languages[languageIndex]}
-            </button>
+          <div className="gpt_container_header">
             <Image
               src={isLoading ? HmmSticker : Sticker}
               height={200}
@@ -233,19 +227,35 @@ const OpenAIComponent = () => {
               alt="Example Image"
               className="gpt_image"
             />
+            <h1>Prof.Dr.GPT</h1>
+            <button
+              type="button"
+              className="gpt_language_button"
+              onClick={handleLanguage}
+            >
+              {languages[languageIndex]}
+            </button>
+            <button
+              type="button"
+              className="gpt_exit_button"
+              onClick={handlePopup}
+            >
+              X
+            </button>
             <button
               className={chatOrCode ? "gpt_chat" : "gpt_code"}
               onClick={handleChatOrCodeChange}
             >
               {chatOrCode ? "Frage/Antwortmodus" : "Codeüberprüfung"}
             </button>
-            Prof.Dr.GPT
-          </h1>
+          </div>
           <div className="gpt_container_chat">
             {messages.map((message, index) => (
               <div
                 key={index}
-                className={message.type === "question" ? "gpt_question" : "gpt_answer"}
+                className={
+                  message.type === "question" ? "gpt_question" : "gpt_answer"
+                }
               >
                 {message.text}
               </div>
@@ -269,7 +279,11 @@ const OpenAIComponent = () => {
     return (
       <div className="gpt_container">
         <h1 className="gpt_container_header">
-          <button type="button" className="gpt_exit_button" onClick={handlePopup}>
+          <button
+            type="button"
+            className="gpt_exit_button"
+            onClick={handlePopup}
+          >
             X
           </button>
           <button
