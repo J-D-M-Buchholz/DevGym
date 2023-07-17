@@ -62,7 +62,7 @@ export function Navbar() {
                 <NavigationMenuLink asChild>
                   <a
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
+                    href="/about"
                   >
                     <div className="mb-2 mt-4 text-lg font-medium">DevGym</div>
                     <p className="text-sm leading-tight text-muted-foreground">
