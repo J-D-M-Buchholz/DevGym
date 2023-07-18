@@ -278,36 +278,36 @@ const OpenAIComponent = () => {
 
     return (
       <div className="gpt_container">
-        <h1 className="gpt_container_header">
-          <button
-            type="button"
-            className="gpt_exit_button"
-            onClick={handlePopup}
-          >
-            X
-          </button>
-          <button
-            type="button"
-            className="gpt_language_button"
-            onClick={handleLanguage}
-          >
-            {languages[languageIndex]}
-          </button>
-          <Image
-            src={isLoading ? HmmSticker : Sticker}
-            height={200}
-            width={200}
-            alt="Example Image"
-            className="gpt_image"
-          />
+          <div className="gpt_container_header">
+            <Image
+              src={isLoading ? HmmSticker : Sticker}
+              height={200}
+              width={200}
+              alt="Example Image"
+              className="gpt_image"
+            />
+            <h1>Prof.Dr.GPT</h1>
+            <button
+              type="button"
+              className="gpt_language_button"
+              onClick={handleLanguage}
+            >
+              {languages[languageIndex]}
+            </button>
+            <button
+              type="button"
+              className="gpt_exit_button"
+              onClick={handlePopup}
+            >
+              X
+            </button>
           <button
             className={chatOrCode ? "gpt_chat" : "gpt_code"}
             onClick={handleChatOrCodeChange}
           >
             {chatOrCode ? "Frage/Antwortmodus" : "Codeüberprüfung"}
           </button>
-          Prof.Dr.GPT
-        </h1>
+        </div>
         <div className="gpt_answerCode">{answer}</div>
         <form className="gpt_formCode" onSubmit={handleSubmitChatForm}>
           <textarea

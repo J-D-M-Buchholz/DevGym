@@ -20,7 +20,7 @@ const Dashboard: React.FC = () => {
       <div className="dash_icon" onClick={() => setShowDiv(!showDiv)}>
         {showDiv ? (
           <img
-            src={theme === "light" ? "/kreuz(2).png" : "/kreuz(1).png"}
+            src={!theme || theme === "light" ? "/kreuz(2).png" : "/kreuz(1).png"}
             alt="Kreuz"
             className="dash_person-icon"
             width={50}
@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
           />
         ) : (
           <img
-            src={theme === "light" ? "/benutzer(2).png" : "/benutzer(1).png"}
+            src={!theme || theme === "light" ? "/benutzer(2).png" : "/benutzer(1).png"}
             alt="Person"
             className="dash_person-icon"
             width={50}
