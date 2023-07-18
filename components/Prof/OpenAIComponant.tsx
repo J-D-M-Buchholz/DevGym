@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import OpenAI from "openai-api"
 
@@ -86,7 +86,16 @@ const OpenAIComponent = () => {
   }) => {
     event.preventDefault()
     setOpenaiAPIKeyIsValidated(true)
+    localStorage.setItem("openaiAPIKey", apiKeyInputValue)
   }
+
+  useEffect(() => {
+    const storedAPIKey = localStorage.getItem("openaiAPIKey")
+    if (storedAPIKey) {
+      setApiKeyInputValue(storedAPIKey)
+      setOpenaiAPIKeyIsValidated(true)
+    }
+  }, [])
 
   const handleMaxTokensChange = (event: {
     preventDefault: () => void
@@ -211,7 +220,7 @@ const OpenAIComponent = () => {
                 />
               </Tooltip>
             </TooltipSet>
-            <input className="gpt_submit" type="submit" value="Absenden" />
+            <button className="gpt_submit" type="submit">Absenden</button>
           </form>
         </div>
       )
@@ -270,7 +279,7 @@ const OpenAIComponent = () => {
               value={question}
               onChange={handleQuestionChange}
             />
-            <input className="gpt_submit" type="submit" value="Absenden" />
+            <button className="gpt_submit" type="submit">Absenden</button>
           </form>
         </div>
       )
@@ -278,29 +287,29 @@ const OpenAIComponent = () => {
 
     return (
       <div className="gpt_container">
-          <div className="gpt_container_header">
-            <Image
-              src={isLoading ? HmmSticker : Sticker}
-              height={200}
-              width={200}
-              alt="Example Image"
-              className="gpt_image"
-            />
-            <h1>Prof.Dr.GPT</h1>
-            <button
-              type="button"
-              className="gpt_language_button"
-              onClick={handleLanguage}
-            >
-              {languages[languageIndex]}
-            </button>
-            <button
-              type="button"
-              className="gpt_exit_button"
-              onClick={handlePopup}
-            >
-              X
-            </button>
+        <div className="gpt_container_header">
+          <Image
+            src={isLoading ? HmmSticker : Sticker}
+            height={200}
+            width={200}
+            alt="Example Image"
+            className="gpt_image"
+          />
+          <h1>Prof.Dr.GPT</h1>
+          <button
+            type="button"
+            className="gpt_language_button"
+            onClick={handleLanguage}
+          >
+            {languages[languageIndex]}
+          </button>
+          <button
+            type="button"
+            className="gpt_exit_button"
+            onClick={handlePopup}
+          >
+            X
+          </button>
           <button
             className={chatOrCode ? "gpt_chat" : "gpt_code"}
             onClick={handleChatOrCodeChange}
@@ -316,7 +325,7 @@ const OpenAIComponent = () => {
             value={question}
             onChange={handleQuestionChange}
           />
-          <input className="gpt_submitCode" type="submit" value="Absenden" />
+          <button className="gpt_submitCode" type="submit">Absenden</button>
         </form>
       </div>
     )
