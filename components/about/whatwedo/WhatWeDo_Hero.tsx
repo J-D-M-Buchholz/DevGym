@@ -35,7 +35,7 @@ export default function WhatWeDo_Hero() {
           ></Image>
         </div>
 
-        <p className="text-lg text-stone-800 my-12 font-bold">{`We offer workouts that are appropriate for all genders and ages. 
+        <p className="text-lg text-stone-800 my-12 font-bold">{`We provide step-by-step training. 
     It's hard at first, but watch your cord muscles get bigger and bigger!`}</p>
       </section>
     </div>
