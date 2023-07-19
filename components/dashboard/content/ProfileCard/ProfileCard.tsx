@@ -21,14 +21,14 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     <div className="dash_ProfileCard">
       <div className="dash_ProfileImages">
         <img
-          src="/background.jpg"
+          src="/background.jpeg"
           alt="Background"
           className="dash_ProfileImages1"
           width={100}
           height={100}
         />
         <img
-          src="/profile.jpg"
+          src="/joel.png"
           alt="Profile"
           className="dash_ProfileImages2"
           width={100}
@@ -37,8 +37,8 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
       </div>
 
       <div className="dash_ProfileName">
-        <span>Adolfus </span>
-        <span>Junior Java Entwickler</span>
+        <span>Joel</span>
+        <span>Full Stack Entwickler</span>
       </div>
 
       <div className="dash_followStatus">

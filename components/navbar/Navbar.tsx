@@ -29,7 +29,7 @@ const components: { title: string; href: string; description: string }[] = [
   },
   {
     title: "Qualification",
-    href: "/",
+    href: "/about/qualification",
     description:
       "Quality information, including the qualification that you are enrolled in.",
   },

@@ -1,6 +1,6 @@
 export const Followers = [
-    { name: "Alex", username: "Alexandria", img: "/profile.jpg" },
-    { name: "Peter", username: "Peteee", img: "/profile.jpg" },
-    { name: "Tom", username: "Tommahoak", img: "/profile.jpg" },
-    { name: "Bob", username: "Bobby", img: "/profile.jpg" },
+    { name: "Burhan", username: "Bxr", img: "/burhan.png" },
+    { name: "Yeran", username: "Ran", img: "/yeran.png" },
+    { name: "Elias", username: "Boddy Murat", img: "/elias.png" },
+    { name: "Yassin", username: "Sinzun", img: "/yassin.png" },
 ];
