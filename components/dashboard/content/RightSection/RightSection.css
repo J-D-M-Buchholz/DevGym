@@ -1,5 +1,6 @@
 .dash_Icon {
-  background: linear-gradient(90deg, gray, lightgray 100%);
+  background: linear-gradient(to right,  rgba(163, 89, 15),rgb(0, 130, 173), rgb(29, 15, 163));
+  box-shadow: inset 0 4px 30px rgba(0, 0, 0, 0.125);
   border-radius: 0.5rem;
   color: white;
   cursor: pointer;
@@ -8,7 +9,7 @@
 
 .dash_Icon:hover {
   background: transparent;
-  color: gray;
+  color: rgba(163, 89, 15);
   cursor: pointer;
 }
 
