@@ -4,7 +4,7 @@ import Link from "next/link"
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import Image from "next/image"
-import { Navbar } from "./Navbar/Navbar"
+import { Navbar } from "./navbar/Navbar"
 import { useTheme } from "next-themes"
 
 
