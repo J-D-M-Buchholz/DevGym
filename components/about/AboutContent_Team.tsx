@@ -4,27 +4,27 @@ const teamDevGym = [
   {
     name: "Elias",
     role: "Co-Founder",
-    imageUrl: "/about/about_profile/about_team_profile.png",
+    imageUrl: "/elias.png",
   },
   {
     name: "Burhan",
     role: "Co-Founder",
-    imageUrl: "/about/about_profile/about_team_profile.png",
+    imageUrl: "/burhan.png",
   },
   {
     name: "Joel",
     role: "Co-Founder",
-    imageUrl: "/about_profile/joel.png",
+    imageUrl: "/joel.png",
   },
   {
     name: "Yasin",
     role: "Co-Founder",
-    imageUrl: "/about/about_profile/about_team_profile.png",
+    imageUrl: "/yassin.png",
   },
   {
     name: "Yeran",
     role: "Co-Founder",
-    imageUrl: "/about_profile/yeran.png",
+    imageUrl: "/yeran.png",
   },
 ]
 

@@ -90,7 +90,7 @@ const PostShare = () => {
   return (
     <div className="dash_PostShare">
       <img
-        src="/profile.jpg"
+        src="/joel.png"
         alt="Profile"
         className="dash_PostShare-img"
         width={100}
