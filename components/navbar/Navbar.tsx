@@ -17,7 +17,7 @@ import {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Courses",
-    href: "/",
+    href: "/courses",
     description:
       "More information about the courses, including the courses that you are enrolled in.",
   },
@@ -72,7 +72,7 @@ export function Navbar() {
                 </NavigationMenuLink>
               </li>
               <ListItem href="/" title="What We Do">
-                We're here to help and build a Caarer for everyones suits.
+                We're here to help and build a Career for everyones suits.
               </ListItem>
               <ListItem href="/" title="Qualification">
                 Get your qualification.
