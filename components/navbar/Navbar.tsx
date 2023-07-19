@@ -17,7 +17,7 @@ import {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Courses",
-    href: "/",
+    href: "/courses",
     description:
       "More information about the courses, including the courses that you are enrolled in.",
   },
