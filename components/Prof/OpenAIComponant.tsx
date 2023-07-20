@@ -78,16 +78,30 @@ const OpenAIComponent = () => {
   const handleApiKeyInputChange = (event: {
     target: { value: React.SetStateAction<string> }
   }) => {
-    setApiKeyInputValue(event.target.value)
-  }
+    setApiKeyInputValue(event.target.value);
+  };
 
   const handleSubmitApiKeyForm = async (event: {
-    preventDefault: () => void
+    preventDefault: () => void;
   }) => {
-    event.preventDefault()
-    setOpenaiAPIKeyIsValidated(true)
-    localStorage.setItem("openaiAPIKey", apiKeyInputValue)
-  }
+    event.preventDefault();
+    const trimmedApiKey = apiKeyInputValue.trim();
+    setApiKeyInputValue(trimmedApiKey);
+
+    if (trimmedApiKey) {
+      openai = new OpenAI(trimmedApiKey);
+      const response = await openai.complete({
+        engine: "text-davinci-003",
+        prompt: "Hallo",
+        maxTokens: 1,
+      });
+
+      if (!response.data.choices[0].text.toLowerCase().includes("error")) {
+        setOpenaiAPIKeyIsValidated(true);
+        localStorage.setItem("openaiAPIKey", trimmedApiKey);
+      }
+    }
+  };
 
   useEffect(() => {
     const storedAPIKey = localStorage.getItem("openaiAPIKey")
@@ -125,46 +139,49 @@ const OpenAIComponent = () => {
     setLanguageIndex((languageIndex + 1) % languages.length)
   }
 
-  const handleSubmitChatForm = async (event: {
-    preventDefault: () => void
-  }) => {
-    event.preventDefault()
-    if (!openaiAPIKeyIsValidated) return
-    let newQuestion = question
-    if (chatOrCode) {
-      newQuestion += `${pleaseAnswer[languageIndex]}`
+const handleSubmitChatForm = async (event: {
+  preventDefault: () => void;
+}) => {
+  event.preventDefault();
+  if (!openaiAPIKeyIsValidated) return;
+
+  let newQuestion = question;
+  if (chatOrCode) {
+    if (!question.trim()) {
+      setMessages([...messages, { text: "Bitte gib eine Frage ein.", type: "answer" }]);
+      return;
     }
-    if (!chatOrCode) {
-      newQuestion += ` ${settings[languageIndex]} ${pleaseAnswer[languageIndex]}.`
-    }
-
-    const displayQuestion = question.replace(
-      `${pleaseAnswer[languageIndex]}`,
-      ""
-    )
-
-    const newMessages = [
-      ...messages,
-      { text: displayQuestion, type: "question" },
-    ]
-    setMessages(newMessages)
-    setQuestion("")
-    setIsLoading(true)
-
-    const response = await openai.complete({
-      engine: "text-davinci-003",
-      prompt: newQuestion,
-      maxTokens: maxTokens,
-      temperature: temperature,
-    })
-
-    setIsLoading(false)
-    setAnswer(response.data.choices[0].text)
-    setMessages([
-      ...newMessages,
-      { text: response.data.choices[0].text, type: "answer" },
-    ])
+    newQuestion += `${pleaseAnswer[languageIndex]}`;
   }
+  if (!chatOrCode) {
+    if (!question.trim()) {
+      setAnswer("Bitte gebe den Code ein den du überprüfen möchtest.");
+      return;
+    }
+    newQuestion += ` ${settings[languageIndex]} ${pleaseAnswer[languageIndex]}.`;
+  }
+
+  const displayQuestion = question.replace(`${pleaseAnswer[languageIndex]}`, "");
+
+  const newMessages = [
+    ...messages,
+    { text: displayQuestion, type: "question" },
+  ];
+  setMessages(newMessages);
+  setQuestion("");
+  setIsLoading(true);
+
+  const response = await openai.complete({
+    engine: "text-davinci-003",
+    prompt: newQuestion,
+    maxTokens: maxTokens,
+    temperature: temperature,
+  });
+
+  setIsLoading(false);
+  setAnswer(response.data.choices[0].text);
+  setMessages([...newMessages, { text: response.data.choices[0].text, type: "answer" }]);
+};
 
   if (popup) {
     if (!openaiAPIKeyIsValidated) {
