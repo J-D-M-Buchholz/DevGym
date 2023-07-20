@@ -71,7 +71,7 @@ export function Navbar() {
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/" title="What We Do">
+              <ListItem href="about/whatwedo" title="What We Do">
                 We're here to help and build a Caarer for everyones suits.
               </ListItem>
               <ListItem href="/about/qualification" title="Qualification">
