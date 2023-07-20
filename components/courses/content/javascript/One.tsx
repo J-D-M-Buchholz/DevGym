@@ -1,10 +1,11 @@
 import React from "react"
-import Editor from "@monaco-editor/react"
+import Editor from "../Editor"
+
 
 const One = () => {
   return (
     <div className="exercise_editor">
-      <Editor height="100vh" width="50%" />
+      <Editor/>
     </div>
   )
 }
