@@ -5,7 +5,7 @@ import Posts from "../Posts/Posts";
 
 const PostSection: React.FC = () => {
   return (
-    <div className="PostSection">
+    <div className="dash_PostSection">
       <PostShare />
       <Posts />
     </div>

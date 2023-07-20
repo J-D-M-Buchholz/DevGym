@@ -1,0 +1,39 @@
+.flowtext {
+    display: flex;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: 0.3s;
+    font-size: 4rem;
+    font-weight:bold;
+    color: #9D9993;
+
+ 
+
+    text-shadow: 4px 4px 6px #b8b5b09c, -4px -4px 6px #fff;
+    
+}
+.flowtext:hover {
+  color: #000;
+}
+.flowtext:hover .flowwrap {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+.flowwrap {
+  animation: textLoop 10s linear infinite;
+  padding-right: 1.4881vw;
+
+  
+}
+
+@keyframes textLoop {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}

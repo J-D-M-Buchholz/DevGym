@@ -6,7 +6,7 @@ import InfoCard from "../InfoCard/InfoCard";
 
 const ProfileLeft: React.FC = () => {
   return (
-    <div className="Profile">
+    <div className="dash_Profile">
       <InfoCard />
       <Search />
       <FollowersCard />

@@ -15,9 +15,9 @@ const DashboardProfile: React.FC<DashboardProfileProps> = ({
   setShowProfile,
 }) => {
   return (
-    <div className="DashboardProfile">
+    <div className="dash_DashboardProfile">
       <ProfileLeft />
-      <div className="Profile-center">
+      <div className="dash_Profile-center">
         <ProfileCard
           showProfile={showProfile}
           setShowProfile={setShowProfile}
