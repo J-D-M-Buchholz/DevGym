@@ -71,10 +71,10 @@ export function Navbar() {
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/whatwedo" title="What We Do">
+              <ListItem href="/about/whatwedo" title="What We Do">
                 We're here to help and build a Caarer for everyones suits.
               </ListItem>
-              <ListItem href="/qualification" title="Qualification">
+              <ListItem href="/about/qualification" title="Qualification">
                 Get your qualification.
               </ListItem>
               <ListItem href="/about" title="Our Team">
