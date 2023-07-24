@@ -11,6 +11,7 @@ const DashboardAuth: React.FC = () => {
     username: "",
     password: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
   const { login, isLoggedIn } = useAuth();
   const { push } = useRouter (); 
 
@@ -30,7 +31,10 @@ const DashboardAuth: React.FC = () => {
         }
       );
       const responseData = await response.json();
-      console.log(responseData);
+      console.log("User: ", responseData.user.verified);
+      if(!responseData.user.verified){
+        return setErrorMessage("Please verify your email before login")
+      }
       if (responseData.user) {
         login(responseData);
       } else {
@@ -74,7 +78,9 @@ const DashboardAuth: React.FC = () => {
                   </Link>
                 </p>
               </div>
-
+              {errorMessage && (
+          <div className="text-red-500 text-sm mb-4">{errorMessage}</div>
+        )}
         <div className="mt-5">
           <button
             type="button"

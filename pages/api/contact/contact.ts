@@ -17,7 +17,7 @@ const app = express()
 app.post("/api/contact/contact", contactController)
 ;(async () => {
   try {
-    await connectDB(process.env.MONGO_URI)
+    await connectDB(process.env.URL)
     console.log("MongoDB is connected !")
   } catch (error) {
     console.log(error)

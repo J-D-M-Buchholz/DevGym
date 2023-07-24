@@ -2,6 +2,10 @@ import UserModel from "@/models/userModel";
 import bcrypt from "bcrypt";
 import express from "express";
 import Jwt from "jsonwebtoken";
+import sendVerificationEmail from "@/pages/api/email-verification/sendEmail";
+import nodemailer from "nodemailer"
+
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0"
 
 const app = express();
 
@@ -31,7 +35,22 @@ export const registerUser = async (
       process.env.JWT as string,
       { expiresIn: "2h" }
     );
+    await sendVerificationEmail({ _id:user._id.toString(), username: user.username})
+    const mailOptions = {
+      from: "teamdevgym@gmail.com",
+      to: user.username,
+      subject: "DevGym registration",
+      html: `<h2>Thank you for your registration.</h2> </br> <p>Your DevGym team</p>`,
+    }
 
+    const transporter = nodemailer.createTransport({
+      service: "Gmail",
+      auth: {
+        user: "teamdevgym@gmail.com",
+        pass: "fnfmnsoochmyrlue",
+      },
+    })
+    await transporter.sendMail(mailOptions)
     res.status(200).json({ user, token });
   } catch (error) {
     if (error instanceof Error) {
@@ -49,7 +68,7 @@ export const loginUser = async (
   const { username, password } = req.body;
   try {
     const user = await UserModel.findOne({ username: username });
-
+    
     if (user) {
       const validity = await bcrypt.compare(password, user.password);
 
@@ -76,3 +95,5 @@ export const loginUser = async (
     }
   }
 };
+
+
