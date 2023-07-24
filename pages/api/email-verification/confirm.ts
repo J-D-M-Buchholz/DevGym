@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 async function findUserById(id: string) {
   const user = await UserModel.findOne({ _id: id });
-  console.log(id);
+  // console.log(id);
   return user;
 }
 
@@ -12,7 +12,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const { id } = req.query;
-  console.log(id);
+  // console.log(id);
   
   if (!id) {
     return res.status(400).json({ message: "Missing user ID" });

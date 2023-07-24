@@ -35,12 +35,11 @@ export const registerUser = async (
       process.env.JWT as string,
       { expiresIn: "2h" }
     );
-    await sendVerificationEmail({ _id:user._id.toString(), username: user.username})
     const mailOptions = {
       from: "teamdevgym@gmail.com",
       to: user.username,
       subject: "DevGym registration",
-      html: `<h2>Thank you for your registration.</h2> </br> <p>Your DevGym team</p>`,
+      html: `<h2>Thank you for your registration.</h2> </br> <p>Your DevGym team!</p>`,
     }
 
     const transporter = nodemailer.createTransport({
@@ -51,6 +50,7 @@ export const registerUser = async (
       },
     })
     await transporter.sendMail(mailOptions)
+    await sendVerificationEmail({ _id:user._id.toString(), username: user.username})
     res.status(200).json({ user, token });
   } catch (error) {
     if (error instanceof Error) {

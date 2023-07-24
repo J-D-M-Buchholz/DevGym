@@ -31,7 +31,7 @@ const DashboardAuth: React.FC = () => {
         }
       );
       const responseData = await response.json();
-      console.log("User: ", responseData.user.verified);
+      console.log("Verified: ", responseData.user.verified);
       if(!responseData.user.verified){
         return setErrorMessage("Please verify your email before login")
       }
