@@ -8,7 +8,7 @@ export default function whatwedoPage() {
   return (
     <div>
         <WhatWeDo_Hero/>
-        <WhatWeDo_FlowingBoard/>
+       {/*  <WhatWeDo_FlowingBoard/> */}
         <WhatWeDo_Introduction />
         <AboutContent_Team/>
     </div>
