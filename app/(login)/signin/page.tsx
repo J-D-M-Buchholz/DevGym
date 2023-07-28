@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { useAuth } from "@/components/AuthContext";
+// Elias
+import { signIn, useSession } from "next-auth/react";
 
 const DashboardAuth: React.FC = () => {
   const [data, setData] = useState({
@@ -12,8 +14,12 @@ const DashboardAuth: React.FC = () => {
     password: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
-  const { login, isLoggedIn } = useAuth();
+  // Elias
+  const { login, isLoggedIn, setIsLoggedIn } = useAuth();
   const { push } = useRouter (); 
+
+  // Elias
+  const session = useSession()
 
   async function userLogin() {
     try {
@@ -45,11 +51,24 @@ const DashboardAuth: React.FC = () => {
     }
   }
 
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     push("/");
+  //   }
+  // }, [isLoggedIn, push]);
+
+  // Elias
   useEffect(() => {
+    if (session.status === "authenticated") {
+      setIsLoggedIn(true)
+      // console.log(session);
+      console.log("isLoggedIn: ", isLoggedIn);
+    } 
     if (isLoggedIn) {
       push("/");
     }
-  }, [isLoggedIn, push]);
+    
+  }, [session, isLoggedIn, push]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -83,6 +102,7 @@ const DashboardAuth: React.FC = () => {
         )}
         <div className="mt-5">
           <button
+            onClick={() => signIn("google")}
             type="button"
             className="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
           >

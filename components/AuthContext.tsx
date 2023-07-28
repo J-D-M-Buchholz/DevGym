@@ -11,6 +11,8 @@ interface AuthContextData {
   login: (data: UserData) => void;
   logout: () => void;
   responseData: UserData | null;
+  // Elias 
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AuthContext = createContext<AuthContextData>({
@@ -18,6 +20,8 @@ const AuthContext = createContext<AuthContextData>({
   login: () => {},
   logout: () => {},
   responseData: null,
+  // Elias
+  setIsLoggedIn: () => {},
 });
 
 export const useAuth = (): AuthContextData => useContext(AuthContext);
@@ -51,6 +55,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     login,
     logout,
     responseData,
+    // Elias
+    setIsLoggedIn
   };
 
   return (

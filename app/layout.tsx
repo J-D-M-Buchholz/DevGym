@@ -9,6 +9,7 @@ import Dashboard from "@/components/dashboard/Dashboard"
 import Footer from "@/components/footer/Footer"
 import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
+import GoogleProvider from "@/components/GoogleProvider/GoogleProvider"
 
 export const metadata: Metadata = {
   title: {
@@ -43,15 +44,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
           )}
         >
           <AuthProvider>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              <Dashboard />
-              <div className="relative flex min-h-screen flex-col">
-                <SiteHeader />
-                <div className="flex-1">{children}</div>
-              </div>
-              <OpenAIComponent />
-              <Footer />
-            </ThemeProvider>
+            <GoogleProvider>
+              <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                <Dashboard />
+                <div className="relative flex min-h-screen flex-col">
+                  <SiteHeader />
+                  <div className="flex-1">{children}</div>
+                </div>
+                <OpenAIComponent />
+                <Footer />
+              </ThemeProvider>
+            </GoogleProvider>
           </AuthProvider>
         </body>
       </html>
