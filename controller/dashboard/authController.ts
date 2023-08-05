@@ -82,10 +82,10 @@ export const loginUser = async (
         );
         res.status(200).json({ user, token });
       } else {
-        res.status(400).json("Wrong Password");
+        res.status(400).json({message: "Wrong Password!"});
       }
     } else {
-      res.status(404).json("User does not exists");
+      res.status(404).json({message: "User does not exists!"});
     }
   } catch (error) {
     if (error instanceof Error) {

@@ -37,14 +37,14 @@ const DashboardAuth: React.FC = () => {
         }
       );
       const responseData = await response.json();
-      console.log("Verified: ", responseData.user.verified);
-      if(!responseData.user.verified){
-        return setErrorMessage("Please verify your email before login")
-      }
-      if (responseData.user) {
+        
+      if (response.ok) {
+        if (!responseData.user.verified) {
+          return setErrorMessage("Please verify your email before login");
+        }
         login(responseData);
       } else {
-        console.log("Login fail!");
+        setErrorMessage(responseData);
       }
     } catch (error) {
       console.log(error);
@@ -98,7 +98,7 @@ const DashboardAuth: React.FC = () => {
                 </p>
               </div>
               {errorMessage && (
-          <div className="text-red-500 text-sm mb-4">{errorMessage}</div>
+          <div className="text-red-500 text-sm mb-4 text-center mt-2">{errorMessage}</div>
         )}
         <div className="mt-5">
           <button
