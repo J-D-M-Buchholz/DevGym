@@ -1,29 +1,27 @@
 "use client"
 import Link from "next/link"
-import { useState } from "react"
+import { useRouter } from "next/navigation";
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { useAuth } from './AuthContext';
-// Elias
 import { useSession, signOut } from "next-auth/react"
 
 export function SiteHeader() {
 
   const { isLoggedIn, logout } = useAuth();
-
+  const { push } = useRouter (); 
   const {data: session} = useSession()
 
-  // Elias
   const handleLogout = () => {
     if(session && session.user){
       signOut()
       } else {
         logout()
       }
+      push("/")
   }
 
   return (

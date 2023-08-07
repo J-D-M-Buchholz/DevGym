@@ -17,7 +17,7 @@ const initialState = {
 const Page = () => {
   const [data, setData] = useState(initialState)
   const [confirmPassword, setConfirmPassword] = useState(true)
-  const { login, isLoggedIn } = useAuth()
+  const { isLoggedIn } = useAuth()
   const { push } = useRouter (); 
 
   async function signUp() {
@@ -37,8 +37,7 @@ const Page = () => {
       const responseData = await response.json()
       console.log(responseData)
       if (responseData.user) {
-        // login(responseData)
-        push("/signin")
+        push("/conformation-request")
       } else {
         console.log("Signup fail!")
       }

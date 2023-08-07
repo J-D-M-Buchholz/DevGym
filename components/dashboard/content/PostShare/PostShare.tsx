@@ -11,8 +11,6 @@ import {
 } from "react-icons/fa"
 
 import "./PostShare.css"
-import { response } from "express"
-
 import { useAuth } from "@/components/AuthContext"
 
 const PostShare = () => {
