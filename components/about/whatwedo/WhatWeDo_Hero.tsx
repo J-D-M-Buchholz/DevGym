@@ -1,5 +1,7 @@
+'use client'
 import React from "react"
 import Image from "next/image"
+import Animaion_desk_coding from '../../../components/Animation/Animation'
 
 export default function WhatWeDo_Hero() {
   return (
@@ -18,21 +20,22 @@ export default function WhatWeDo_Hero() {
       </div>
 
       <section className="text-center flex flex-col m-20">
-        <p className="text-gray-600 font-bold text-xl my-5">{`WHAT WE DO ?`}</p>
-        <div className="flex my-10 ">
-          <h1 className="text-5xl font-bold w-2/3 text-gray-700 mx-3">
+        <p className="text-gray-600 font-bold text-5xl">{`WHAT WE DO ?`}</p>
+        <div className="flex my-10 items-center justify-center">
+          <h1 className="text-5xl font-bold w-1/2 text-gray-700 mx-3 ">
             We are a <span className="font-bold text-violet-700">DEV</span>{" "}
             team, providing places and exercises that make{" "}
             <span className="font-bold text-violet-700">CODE</span> easy for
             everyone.
           </h1>
-          <Image
+ {/*          <Image
             src="/advancetools.png"
             alt="img"
             width={300}
             height={200}
             className="w-1/3 ovject-cover rounded-2xl "
-          ></Image>
+          ></Image> */}
+          <Animaion_desk_coding/>
         </div>
 
         <p className="text-lg text-stone-800 my-12 font-bold">{`We provide step-by-step training. 
