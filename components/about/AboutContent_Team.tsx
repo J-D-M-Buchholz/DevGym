@@ -53,8 +53,7 @@ export default function AboutContent_Team() {
               Our Team
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Libero fames augue nisl porttitor nisi, quis. Id ac elit odio
-              vitae elementum enim vitae ullamcorper suspendisse.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis non, sint tempore asperiores natus nihil neque repudiandae. Provident optio quam est odio a, assumenda alias ipsum libero eveniet sit soluta.
             </p>
           </div>
 

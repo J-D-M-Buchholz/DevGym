@@ -14,6 +14,11 @@ const UserSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        verificationCode: {
+            code: String,
+            expiresAt: Date,
+        },
+        verified: {type: Boolean, default: false},
         lastname : {
             type: String,
             required: true
@@ -34,5 +39,5 @@ const UserSchema = new mongoose.Schema(
     {timestamps: true}
 )
 
-const UserModel= mongoose.model("Users", UserSchema);
+const UserModel=  mongoose.models.Users || mongoose.model("Users", UserSchema);
 export default UserModel

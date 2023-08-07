@@ -14,7 +14,7 @@ export const PostsData = [
     liked: false,
   },
   {
-    img: "j0el/.png",
+    img: "/j0el.png",
     name: "Joel",
     desc: "Disco",
     likes: 4,

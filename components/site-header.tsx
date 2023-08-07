@@ -8,10 +8,23 @@ import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { useAuth } from './AuthContext';
+// Elias
+import { useSession, signOut } from "next-auth/react"
 
 export function SiteHeader() {
 
   const { isLoggedIn, logout } = useAuth();
+
+  const {data: session} = useSession()
+
+  // Elias
+  const handleLogout = () => {
+    if(session && session.user){
+      signOut()
+      } else {
+        logout()
+      }
+  }
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
@@ -21,7 +34,8 @@ export function SiteHeader() {
           <nav className="flex items-center space-x-1">
             {isLoggedIn ? (
               <button
-                onClick={logout}
+                // onClick={logout}
+                onClick={handleLogout}
                 className={buttonVariants({ variant: 'outline' })}
               >
                 Logout

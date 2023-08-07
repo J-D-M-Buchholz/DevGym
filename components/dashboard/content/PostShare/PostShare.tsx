@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useRef, useState } from "react"
-import { CldUploadButton } from "next-cloudinary"
 import {
   FaCalendar,
   FaImage,
@@ -78,6 +77,7 @@ const PostShare = () => {
 
         if (postResponse.ok) {
           console.log("Beitrag erfolgreich erstellt")
+          localStorage.setItem("newPost", JSON.stringify(newPost))
         } else {
           console.log("Fehler beim Erstellen des Beitrags")
         }
