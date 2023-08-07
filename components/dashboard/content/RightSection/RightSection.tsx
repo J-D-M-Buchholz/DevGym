@@ -16,23 +16,23 @@ const RightSection: React.FC<RightSectionProps> = ({
 }) => {
   const [modalOpened, setModalOpened] = useState(false);
   return (
-    <div className="RightSide">
-      <div className="navIcons">
-        <div className="Icon" onClick={() => setShowProfile(false)}>
+    <div className="dash_RightSide">
+      <div className="dash_navIcons">
+        <div className="dash_Icon" onClick={() => setShowProfile(false)}>
           <FaHome />
         </div>
-        <div className="Icon" onClick={() => setShowProfile(true)}>
+        <div className="dash_Icon" onClick={() => setShowProfile(true)}>
           <FaSlidersH />
         </div>{" "}
-        <div className="Icon">
+        <div className="dash_Icon">
           <FaBell />
         </div>{" "}
-        <div className="Icon">
+        <div className="dash_Icon">
           <FaComment />
         </div>
       </div>
       <TrendCard />
-      <button className="button r-button" onClick={() => setModalOpened(true)}>
+      <button className="dash_button dash_r-button" onClick={() => setModalOpened(true)}>
         Share
       </button>
       <ShareModal modalOpened={modalOpened} setModalOpened={setModalOpened} />

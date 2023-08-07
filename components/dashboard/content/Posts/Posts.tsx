@@ -13,7 +13,7 @@ interface PostData {
 
 const Posts: React.FC = () => {
   return (
-    <div className="Posts">
+    <div className="dash_Posts">
       {PostsData.map((post: PostData, id: number) => {
         return <Post data={post} key={id} />;
       })}

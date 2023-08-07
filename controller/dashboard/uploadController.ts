@@ -1,29 +1,45 @@
-import { Request, Response } from 'express';
-import multer from 'multer';
-import fs from 'fs';
+import stream from "stream"
+import { Request, Response } from "express"
+import { GridFSBucket, MongoClient } from "mongodb"
+import dotenv from "dotenv"
 
-const storage = multer.diskStorage({
-  destination: (req: Request, file: Express.Multer.File, cb: (error: Error | null, destination: string) => void) => {
-    const destinationFolder = 'public/images';
-    if (!fs.existsSync(destinationFolder)) {
-      fs.mkdirSync(destinationFolder, { recursive: true });
+dotenv.config()
+
+const uri = process.env.URL
+if (!uri) {
+  throw new Error("URL is not defined in environment variables")
+}
+const client = new MongoClient(uri)
+
+const dbName = "forum"
+
+export const uploadFile = async (req: Request, res: Response) => {
+  try {
+    await client.connect()
+    const db = client.db(dbName)
+    const bucket = new GridFSBucket(db)
+    if (!req.file) {
+      return res.status(400).json("File is missing");
     }
-    cb(null, destinationFolder);
-  },
-  filename: (req: Request, file: Express.Multer.File, cb: (error: Error | null, filename: string) => void) => {
-    cb(null, req.body.name);
-  },
-});
+    
+    const bufferStream = new stream.PassThrough();
+    bufferStream.end(req.file.buffer);
+    
 
-const upload = multer({ storage: storage }).single("file");
-
-export const uploadFile = (req: Request, res: Response) => {
-  upload(req, res, (error: any) => {
-    if (error) {
-      console.error(error);
-      return res.status(500).json("File upload failed");
-    }
-    console.log("File uploaded");
-    return res.status(200).json("File uploaded successfully");
-  });
-};
+    bufferStream
+      .pipe(bucket.openUploadStream(req.file.originalname))
+      .on("error", (error) => {
+        console.error(error)
+        return res.status(500).json("File upload failed")
+      })
+      .on("finish", () => {
+        console.log("File uploaded")
+        return res.status(200).json("File uploaded successfully")
+      })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json("File upload failed")
+  } finally {
+    await client.close()
+  }
+}

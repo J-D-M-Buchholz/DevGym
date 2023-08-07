@@ -1,9 +1,9 @@
 import React from 'react'
 import './hero.css'
-import { Header } from './Content/header'
-import { Features } from './Content/features'
-import { Information } from './Content/information'
-import { Pricing } from './Content/pricing'
+import { Header } from './content/header'
+import { Features } from './content/features'
+import { Information } from './content/information'
+import { Pricing } from './content/pricing'
 
 const Hero = () => {
   return (

@@ -1,9 +1,10 @@
-.detail{
+.dash_detail{
   color: white;
 }
 
-.Post {
-  background: linear-gradient(90deg, gray, lightgray 100%);
+.dash_Post {
+  background: linear-gradient(to left,  rgb(29, 15, 163), rgb(0, 130, 173));
+  box-shadow: inset 0 4px 30px rgba(0, 0, 0, 0.25);
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -11,18 +12,19 @@
   padding: 1rem;
 }
 
-.Post > img {
+.dash_Post > img {
   border-radius: 0.3125rem;
   max-height: 20rem;
+  object-fit: contain;
   width: 100%;
 }
 
-.postReact {
+.dash_postReact {
   align-items: flex-start;
   display: flex;
   gap: 1.5rem;
 }
 
-.reactIcon {
+.dash_reactIcon {
   cursor: pointer;
 }

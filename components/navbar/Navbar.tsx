@@ -1,4 +1,5 @@
 "use client"
+
 import * as React from "react"
 import Link from "next/link"
 
@@ -16,7 +17,7 @@ import {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Courses",
-    href: "/",
+    href: "/courses",
     description:
       "More information about the courses, including the courses that you are enrolled in.",
   },
@@ -28,7 +29,7 @@ const components: { title: string; href: string; description: string }[] = [
   },
   {
     title: "Qualification",
-    href: "/",
+    href: "/about/qualification",
     description:
       "Quality information, including the qualification that you are enrolled in.",
   },
@@ -61,9 +62,8 @@ export function Navbar() {
                 <NavigationMenuLink asChild>
                   <a
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
+                    href="/about"
                   >
-                    
                     <div className="mb-2 mt-4 text-lg font-medium">DevGym</div>
                     <p className="text-sm leading-tight text-muted-foreground">
                       From Developers for Developers.
@@ -71,10 +71,10 @@ export function Navbar() {
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/" title="What We Do">
+              <ListItem href="/about/whatwedo" title="What We Do">
                 We're here to help and build a Caarer for everyones suits.
               </ListItem>
-              <ListItem href="/" title="Qualification">
+              <ListItem href="/about/qualification" title="Qualification">
                 Get your qualification.
               </ListItem>
               <ListItem href="/about" title="Our Team">
@@ -100,9 +100,14 @@ export function Navbar() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
+          <Link href="/contact" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Contact
+            </NavigationMenuLink>
+          </Link>
+          <Link href="/contend" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Contend
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
