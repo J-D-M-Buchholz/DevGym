@@ -3,10 +3,14 @@ import React, { useEffect } from "react"
 import { useAuth } from "@/components/AuthContext";
 
 export default function page() {
-  const { setIsLoggedIn } = useAuth();
+  const { login } = useAuth();
+  const storedData = localStorage.getItem("userData")
 
   useEffect(() => {
-    setIsLoggedIn(true);
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+      login(parsedData);
+    }
   }, [])
   
   return (

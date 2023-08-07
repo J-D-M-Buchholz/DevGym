@@ -37,6 +37,7 @@ const Page = () => {
       const responseData = await response.json()
       console.log(responseData)
       if (responseData.user) {
+        localStorage.setItem("userData", JSON.stringify(responseData));
         push("/conformation-request")
       } else {
         console.log("Signup fail!")

@@ -105,9 +105,9 @@ export function Navbar() {
               Contact
             </NavigationMenuLink>
           </Link>
-          <Link href="/contend" legacyBehavior passHref>
+          <Link href="/content" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Contend
+              Content
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
