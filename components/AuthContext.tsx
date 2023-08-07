@@ -46,6 +46,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setIsLoggedIn(false);
     setResponseData(null);
     localStorage.removeItem("authData");
+    localStorage.removeItem("userData");
   };
 
   const authContextValue: AuthContextData = {
