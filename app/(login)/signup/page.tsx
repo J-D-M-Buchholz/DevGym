@@ -37,7 +37,8 @@ const Page = () => {
       const responseData = await response.json()
       console.log(responseData)
       if (responseData.user) {
-        login(responseData)
+        // login(responseData)
+        push("/signin")
       } else {
         console.log("Signup fail!")
       }
