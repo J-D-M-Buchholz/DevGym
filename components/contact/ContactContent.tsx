@@ -1,6 +1,7 @@
 import React from 'react'
-import { Email } from './content/email'
+
 import { Reachout } from './content/reachout'
+import { Email } from './content/email'
 
 
 const ContactContent = () => {
