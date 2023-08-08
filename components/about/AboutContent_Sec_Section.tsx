@@ -63,7 +63,7 @@ export const AboutContent_Sec_Section = () => {
               </h3>
               <p className="mt-1 text-gray-600 dark:text-gray-400">
                 From boarding passes to movie tickets, there's pretty much
-                nothing you can't store with Preline.
+                nothing you can't store with DevGym.
               </p>
             </div>
           </div>
