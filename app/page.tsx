@@ -1,6 +1,6 @@
 import React from "react"
-import Hero from "@/components/Hero/Hero"
-import ContactContent from "@/components/Contact/ContactContent"
+import Hero from "@/components/hero/Hero"
+import ContactContent from "@/components/contact/ContactContent"
 
 
 

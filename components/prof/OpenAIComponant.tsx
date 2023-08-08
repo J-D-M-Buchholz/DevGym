@@ -7,6 +7,8 @@ import OpenAI from "openai-api"
 import Tooltip from "./content/Tooltip"
 import TooltipSet from "./content/TooltipSet"
 import "./OpenAIComponant.css"
+import { useAuth } from "@/components/AuthContext"
+
 import EquationMeme from "./sticker/equation_meme.png"
 import Hallo from "./sticker/hallo.png"
 import HmmSticker from "./sticker/hmmm.png"
@@ -26,6 +28,7 @@ const OpenAIComponent = () => {
   const [chatOrCode, setChatOrCode] = useState(true)
   const [languageIndex, setLanguageIndex] = useState(0)
   const [showInitialGreeting, setShowInitialGreeting] = useState(true)
+  const { isLoggedIn } = useAuth()
 
   let openai: OpenAI
 
@@ -193,7 +196,9 @@ const OpenAIComponent = () => {
       { text: response.data.choices[0].text, type: "answer" },
     ])
   }
-
+  if (!isLoggedIn) {
+    return null
+  }
   if (popup) {
     if (!openaiAPIKeyIsValidated) {
       return (

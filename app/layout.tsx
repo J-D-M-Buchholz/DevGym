@@ -4,12 +4,12 @@ import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { AuthProvider } from "@/components/AuthContext"
-import OpenAIComponent from "@/components/Prof/OpenAIComponant"
-import Dashboard from "@/components/Dashboard/Dashboard"
+import OpenAIComponent from "@/components/prof/OpenAIComponant"
+import Dashboard from "@/components/dashboard/Dashboard"
 import Footer from "@/components/footer/Footer"
 import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
-import GoogleProvider from "@/components/GoogleProvider/GoogleProvider"
+import GoogleProvider from "@/components/googleProvider/GoogleProvider"
 
 export const metadata: Metadata = {
   title: {
