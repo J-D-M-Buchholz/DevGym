@@ -18,7 +18,7 @@ export default function Editor() {
   }
 
   return (
-    <main className="flex min-h-screen border border-solid  border-white">
+    <main className="flex min-h-screen border border-solid px-12 border-white">
       <div className="left">
         <div className="task_container">
           <h1>title</h1>
