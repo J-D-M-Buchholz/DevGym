@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { useAuth } from "@/components/AuthContext";
-// Elias
 import { signIn, useSession } from "next-auth/react";
 
 const DashboardAuth: React.FC = () => {
@@ -14,11 +13,8 @@ const DashboardAuth: React.FC = () => {
     password: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
-  // Elias
   const { login, isLoggedIn, setIsLoggedIn } = useAuth();
   const { push } = useRouter (); 
-
-  // Elias
   const session = useSession()
 
   async function userLogin() {
@@ -51,17 +47,9 @@ const DashboardAuth: React.FC = () => {
     }
   }
 
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     push("/");
-  //   }
-  // }, [isLoggedIn, push]);
-
-  // Elias
   useEffect(() => {
     if (session.status === "authenticated") {
       setIsLoggedIn(true)
-      // console.log(session);
       console.log("isLoggedIn: ", isLoggedIn);
     } 
     if (isLoggedIn) {

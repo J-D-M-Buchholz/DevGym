@@ -25,6 +25,7 @@ const OpenAIComponent = () => {
   const [temperature, setTemperature] = useState(0)
   const [chatOrCode, setChatOrCode] = useState(true)
   const [languageIndex, setLanguageIndex] = useState(0)
+  const [showInitialGreeting, setShowInitialGreeting] = useState(true)
 
   let openai: OpenAI
 
@@ -78,30 +79,30 @@ const OpenAIComponent = () => {
   const handleApiKeyInputChange = (event: {
     target: { value: React.SetStateAction<string> }
   }) => {
-    setApiKeyInputValue(event.target.value);
-  };
+    setApiKeyInputValue(event.target.value)
+  }
 
   const handleSubmitApiKeyForm = async (event: {
-    preventDefault: () => void;
+    preventDefault: () => void
   }) => {
-    event.preventDefault();
-    const trimmedApiKey = apiKeyInputValue.trim();
-    setApiKeyInputValue(trimmedApiKey);
+    event.preventDefault()
+    const trimmedApiKey = apiKeyInputValue.trim()
+    setApiKeyInputValue(trimmedApiKey)
 
     if (trimmedApiKey) {
-      openai = new OpenAI(trimmedApiKey);
+      openai = new OpenAI(trimmedApiKey)
       const response = await openai.complete({
         engine: "text-davinci-003",
         prompt: "Hallo",
         maxTokens: 1,
-      });
+      })
 
       if (!response.data.choices[0].text.toLowerCase().includes("error")) {
-        setOpenaiAPIKeyIsValidated(true);
-        localStorage.setItem("openaiAPIKey", trimmedApiKey);
+        setOpenaiAPIKeyIsValidated(true)
+        localStorage.setItem("openaiAPIKey", trimmedApiKey)
       }
     }
-  };
+  }
 
   useEffect(() => {
     const storedAPIKey = localStorage.getItem("openaiAPIKey")
@@ -133,55 +134,65 @@ const OpenAIComponent = () => {
     setQuestion("")
     setAnswer("")
     setMessages([])
+    setShowInitialGreeting(false)
   }
 
   const handleLanguage = () => {
     setLanguageIndex((languageIndex + 1) % languages.length)
   }
 
-const handleSubmitChatForm = async (event: {
-  preventDefault: () => void;
-}) => {
-  event.preventDefault();
-  if (!openaiAPIKeyIsValidated) return;
+  const handleSubmitChatForm = async (event: {
+    preventDefault: () => void
+  }) => {
+    event.preventDefault()
+    if (!openaiAPIKeyIsValidated) return
 
-  let newQuestion = question;
-  if (chatOrCode) {
-    if (!question.trim()) {
-      setMessages([...messages, { text: "Bitte gib eine Frage ein.", type: "answer" }]);
-      return;
+    let newQuestion = question
+    if (chatOrCode) {
+      if (!question.trim()) {
+        setMessages([
+          ...messages,
+          { text: "Bitte gib eine Frage ein.", type: "answer" },
+        ])
+        return
+      }
+      newQuestion += `${pleaseAnswer[languageIndex]}`
     }
-    newQuestion += `${pleaseAnswer[languageIndex]}`;
-  }
-  if (!chatOrCode) {
-    if (!question.trim()) {
-      setAnswer("Bitte gebe den Code ein den du überprüfen möchtest.");
-      return;
+    if (!chatOrCode) {
+      if (!question.trim()) {
+        setAnswer("Bitte gebe den Code ein den du überprüfen möchtest.")
+        return
+      }
+      newQuestion += ` ${settings[languageIndex]} ${pleaseAnswer[languageIndex]}.`
     }
-    newQuestion += ` ${settings[languageIndex]} ${pleaseAnswer[languageIndex]}.`;
+
+    const displayQuestion = question.replace(
+      `${pleaseAnswer[languageIndex]}`,
+      ""
+    )
+
+    const newMessages = [
+      ...messages,
+      { text: displayQuestion, type: "question" },
+    ]
+    setMessages(newMessages)
+    setQuestion("")
+    setIsLoading(true)
+
+    const response = await openai.complete({
+      engine: "text-davinci-003",
+      prompt: newQuestion,
+      maxTokens: maxTokens,
+      temperature: temperature,
+    })
+
+    setIsLoading(false)
+    setAnswer(response.data.choices[0].text)
+    setMessages([
+      ...newMessages,
+      { text: response.data.choices[0].text, type: "answer" },
+    ])
   }
-
-  const displayQuestion = question.replace(`${pleaseAnswer[languageIndex]}`, "");
-
-  const newMessages = [
-    ...messages,
-    { text: displayQuestion, type: "question" },
-  ];
-  setMessages(newMessages);
-  setQuestion("");
-  setIsLoading(true);
-
-  const response = await openai.complete({
-    engine: "text-davinci-003",
-    prompt: newQuestion,
-    maxTokens: maxTokens,
-    temperature: temperature,
-  });
-
-  setIsLoading(false);
-  setAnswer(response.data.choices[0].text);
-  setMessages([...newMessages, { text: response.data.choices[0].text, type: "answer" }]);
-};
 
   if (popup) {
     if (!openaiAPIKeyIsValidated) {
@@ -237,7 +248,9 @@ const handleSubmitChatForm = async (event: {
                 />
               </Tooltip>
             </TooltipSet>
-            <button className="gpt_submit" type="submit">Absenden</button>
+            <button className="gpt_submit" type="submit">
+              Absenden
+            </button>
           </form>
         </div>
       )
@@ -276,6 +289,12 @@ const handleSubmitChatForm = async (event: {
             </button>
           </div>
           <div className="gpt_container_chat">
+            {showInitialGreeting && (
+              <div className="gpt_answer">
+                Hallo mein Name ist Professor Dr.GPT, aber meine Freunde nennen
+                mich Prof. Wie kann ich dir helfen?
+              </div>
+            )}
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -296,7 +315,9 @@ const handleSubmitChatForm = async (event: {
               value={question}
               onChange={handleQuestionChange}
             />
-            <button className="gpt_submit" type="submit">Absenden</button>
+            <button className="gpt_submit" type="submit">
+              Absenden
+            </button>
           </form>
         </div>
       )
@@ -342,7 +363,9 @@ const handleSubmitChatForm = async (event: {
             value={question}
             onChange={handleQuestionChange}
           />
-          <button className="gpt_submitCode" type="submit">Absenden</button>
+          <button className="gpt_submitCode" type="submit">
+            Absenden
+          </button>
         </form>
       </div>
     )

@@ -10,8 +10,6 @@ export default function IndexPage() {
       <div className="flex w-full flex-col items-start gap-2">
         <Hero />
         <ContactContent />
-
-        
       </div>
     </section>
   )
