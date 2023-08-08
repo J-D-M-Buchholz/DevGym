@@ -4,9 +4,10 @@ import { useAuth } from "@/components/AuthContext";
 
 export default function page() {
   const { login } = useAuth();
-  const storedData = localStorage.getItem("userData")
+ 
 
   useEffect(() => {
+    const storedData = localStorage.getItem("userData")
     if (storedData) {
       const parsedData = JSON.parse(storedData);
       login(parsedData);
