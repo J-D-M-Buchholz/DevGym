@@ -42,7 +42,11 @@ const LiveCoding = () => {
   }
 
   if (!isLoggedIn) {
-    return <p>Please log in to book an appointment.</p>
+    return (
+      <p style={{ textAlign: "center", margin: "5%" }}>
+        Please log in to book an appointment.
+      </p>
+    )
   }
 
   return (
