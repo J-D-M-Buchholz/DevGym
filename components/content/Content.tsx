@@ -1,22 +1,11 @@
 import React from "react"
+import Editor from "./content/Editor"
 
-import CourseCard from "./content/CourseCard"
 
 const Content = () => {
   return (
     <div className="courses_container">
-      <CourseCard
-        course_title="HTML"
-        description="Your starting point in your webdevelopment career. HTML is..."
-      />
-      <CourseCard
-        course_title="CSS"
-        description="Your second step in your webdevelopment career. CSS is..."
-      />
-      <CourseCard
-        course_title="Javascript"
-        description="Your third step in your webdevelopment career. Javascript is..."
-      />
+      <Editor />
     </div>
   )
 }
