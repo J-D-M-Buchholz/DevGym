@@ -1,6 +1,10 @@
 "use client"
-import React, { useState } from "react"
+
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react"
+
 import "./DashboardAuth.css"
+import { useRouter } from "next/navigation"
+
 import { useAuth } from "@/components/AuthContext"
 
 const initialState = {
@@ -11,12 +15,17 @@ const initialState = {
   confirmpass: "",
 }
 
-const DashboardAuth: React.FC = () => {
+interface DashboardAuthProps {
+  setShowDiv: Dispatch<SetStateAction<boolean>>
+}
+
+const DashboardAuth: React.FC<DashboardAuthProps> = ({ setShowDiv }) => {
   const [isSignUp, setIsSignUp] = useState(true)
   const [data, setData] = useState(initialState)
   const [confirmPassword, setConfirmPassword] = useState(true)
   const [responseMessage, setResponseMessage] = useState("")
-  const { login } = useAuth()
+  const { login, isLoggedIn } = useAuth()
+  const { push } = useRouter()
 
   async function signUp() {
     try {
@@ -35,7 +44,9 @@ const DashboardAuth: React.FC = () => {
       const responseData = await response.json()
       console.log(responseData)
       if (responseData.user) {
-        login(responseData)
+        localStorage.setItem("userData", JSON.stringify(responseData))
+        push("/conformation-request")
+        setShowDiv(false)
       } else {
         setResponseMessage(responseData.message)
       }
@@ -70,6 +81,12 @@ const DashboardAuth: React.FC = () => {
       console.log(error)
     }
   }
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      push("/")
+    }
+  }, [isLoggedIn, push])
 
   const handleChange = (e: any) => {
     setData({ ...data, [e.target.name]: e.target.value })
