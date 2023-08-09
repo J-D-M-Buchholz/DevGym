@@ -1,11 +1,8 @@
 "use client"
-
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react"
-
+import React, { useState, useEffect, Dispatch, SetStateAction } from "react"
 import "./DashboardAuth.css"
-import { useRouter } from "next/navigation"
-
 import { useAuth } from "@/components/AuthContext"
+import { useRouter } from "next/navigation";
 
 const initialState = {
   firstname: "",
@@ -16,16 +13,18 @@ const initialState = {
 }
 
 interface DashboardAuthProps {
-  setShowDiv: Dispatch<SetStateAction<boolean>>
+  setShowDiv: Dispatch<SetStateAction<boolean>>;
 }
 
-const DashboardAuth: React.FC<DashboardAuthProps> = ({ setShowDiv }) => {
+const DashboardAuth: React.FC<DashboardAuthProps> = ({
+  setShowDiv,
+}) => {
   const [isSignUp, setIsSignUp] = useState(true)
   const [data, setData] = useState(initialState)
   const [confirmPassword, setConfirmPassword] = useState(true)
   const [responseMessage, setResponseMessage] = useState("")
   const { login, isLoggedIn } = useAuth()
-  const { push } = useRouter()
+  const { push } = useRouter (); 
 
   async function signUp() {
     try {
@@ -44,7 +43,7 @@ const DashboardAuth: React.FC<DashboardAuthProps> = ({ setShowDiv }) => {
       const responseData = await response.json()
       console.log(responseData)
       if (responseData.user) {
-        localStorage.setItem("userData", JSON.stringify(responseData))
+        localStorage.setItem("userData", JSON.stringify(responseData));
         push("/conformation-request")
         setShowDiv(false)
       } else {
@@ -82,11 +81,11 @@ const DashboardAuth: React.FC<DashboardAuthProps> = ({ setShowDiv }) => {
     }
   }
 
-  useEffect(() => {
+    useEffect(() => {
     if (isLoggedIn) {
-      push("/")
+      push("/");
     }
-  }, [isLoggedIn, push])
+  }, [isLoggedIn, push]);
 
   const handleChange = (e: any) => {
     setData({ ...data, [e.target.name]: e.target.value })

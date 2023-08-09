@@ -2,7 +2,7 @@ import React from "react"
 
 import CourseCard from "./content/CourseCard"
 
-const Courses = () => {
+const Content = () => {
   return (
     <div className="courses_container">
       <CourseCard
@@ -21,4 +21,4 @@ const Courses = () => {
   )
 }
 
-export default Courses
+export default Content
