@@ -1,13 +1,5 @@
 import mongoose, {Schema} from "mongoose";
 
-// const ContentsSchema = new Schema({
-//     title : String,
-//     topic : String,
-//     content: String,
-// })
-
-// const ContentModel=  mongoose.models.Contents || mongoose.model("contents", ContentsSchema);
-// export default ContentModel
 const ContentsSchema = new Schema({
     title : String,
     topic : String,

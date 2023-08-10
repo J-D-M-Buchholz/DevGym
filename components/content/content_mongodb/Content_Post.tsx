@@ -1,29 +1,27 @@
-import React from "react"
+'use client'
 
-import { ContentItem } from "./Content_Component"
+import { title } from "process"
+import ContentFetch from "./Content_Fetch"
 
 type Props = {
-  content: ContentItem[] | null
+  title_path : string
 }
 
-const HTML = "html"
-const CSS = "css"
-const JS = "js"
-const Q = "question"
-const E = "explanation"
-
-export default function Content_Post({ content }: Props) {
+export default function Content_Post({title_path} : Props) {
+  const content = ContentFetch()
   return (
     <div>
       {content &&
         content.map((item) => {
           return (
             <div>
-              {/* {item.topic === "question" ? <p>{item.question.heading}</p> : null}
-              {item.topic === "explanation"? <p className="text-green-500">{item.explanation.heading}</p> : null} */}
-              {item.title === HTML && item.topic === Q ? <p className="text-green-500">{item.question.heading}</p> : null}
-              {item.title === CSS ? <p className="text-red-400">{item.question.heading}</p> : null}
-              
+              {item.title === title_path && item.topic === "question" ? 
+              <div>
+              <p>{item.question.heading}</p> 
+              <p>{item.question.text}</p>
+              </div>
+              : null}
+
             </div>
           )
         })}
