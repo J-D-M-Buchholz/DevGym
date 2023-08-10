@@ -1,10 +1,15 @@
-import React from "react"
-import Editor from "./content/Editor"
+"use client"
 
+import React from "react"
+
+import Editor from "./content/Editor/Editor"
+import Task from "./content/Task/Task"
+import "./Content.css"
 
 const Content = () => {
   return (
-    <div className="courses_container">
+    <div className="container">
+      <Task />
       <Editor />
     </div>
   )

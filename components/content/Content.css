@@ -1,0 +1,72 @@
+/* TASK AREA */
+
+/* EDITOR AREA */
+
+.editor_wrapper {
+  line-height: 1.5;
+}
+
+.tab_nav {
+  display: flex;
+}
+
+.tab_item {
+  width: 50%;
+  padding: 1rem;
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.7s;
+}
+
+.code_editor {
+  width: 100%;
+  height: 20vh;
+  background-color: white;
+
+  color: black;
+}
+
+.tab_item:hover {
+  background: rgba(50, 224, 196, 0.15);
+}
+
+.tab_active {
+  background-color: aqua;
+}
+
+.tab_content {
+  color: white;
+  background-color: gray;
+}
+.output_window {
+  background-color: white;
+}
+
+/* Editor Buttons */
+
+.editor_buttons_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.btn {
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-family: Noto Sans, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  border: 0;
+}
+
+.btn.btn-linear {
+  /* background: linear-gradient(90deg,#0ea5ea,#0bd1d1 51%,#0ea5ea) var(--x,0)/200%; */
+  color: #fff;
+  transition: 0.5s;
+}
