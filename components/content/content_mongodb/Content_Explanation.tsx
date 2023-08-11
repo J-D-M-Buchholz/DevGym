@@ -1,24 +1,23 @@
 import React from "react"
 import { ContentItem } from "./Content_Fetch"
+import { ContentsDB } from "@/types/content"
 
-type Props = {
-  title_path: string
-  contents : ContentItem
-} 
+interface mainContentProps {
+  contents?: ContentsDB,
+  selectedTitle : string
+}
 
-
-
-export default function Content_Explanation({ contents, title_path }: Props) {
+export default function Content_Explanation({ contents, selectedTitle } : mainContentProps) {
   return (
     <div className="max-w-[85rem]">
       {contents &&
-        contents.map((item : ContentItem) => {
+        contents.map((content : ContentItem) => {
           return (
-            <div>
-              {item.title === title_path && item.topic === "explanation" ? (
+            <div key={content._id}>
+              {content.title === selectedTitle && content.topic === "explanation" ? (
                 <div className="text-center">
-                  <p className="text-3xl text-green-800">{item.explanation.heading}</p>
-                  <p>{item.explanation.text}</p>
+                  <p className="text-3xl text-green-800">{content.explanation.heading}</p>
+                  <p>{content.explanation.text}</p>
                 </div>
               ) : null}
             </div>
