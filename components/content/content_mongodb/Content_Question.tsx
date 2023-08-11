@@ -1,29 +1,44 @@
-import React from "react"
+import React, { useState } from "react"
 import { ContentItem } from "./Content_Fetch"
+import { ContentsDB } from "@/types/content"
 
-type Props = {
-  title_path: string
-  contents : ContentItem
-} 
+interface mainContentProps {
+  contents?: ContentsDB,
+  selectedTitle : string
+}
 
 
+export default function Content_Question({ contents, selectedTitle }: mainContentProps) {
 
-export default function Content_Explanation({ contents, title_path }: Props) {
+  const [selectedQuestion, setSelectedQuestion] = useState(null)
+  //const [selectedQuestionId, setSelectedQuestionId] = useState(null)
+
   return (
-    <div>
+    <div className="max-w-[85rem]">
       {contents &&
-        contents.map((item : ContentItem) => {
+        contents.map((content : ContentItem, index:number) => {
           return (
-            <div>
-              {item.title === title_path && item.topic === "question" ? (
-                <div>
-                  <p>{item.question.heading}</p>
-                  <p>{item.question.text}</p>
+            <div key={content._id}>
+              {content.title === selectedTitle && content.topic === "question" ? (
+                <div className="text-center">
+                  <button className="text-3xl text-green-800 bg-slate-300" onClick={()=> setSelectedQuestion(content._id)}>{content.question.heading}</button>
+                  <p className="">{content.question.text}</p>
+                  <p>{content._id}</p>
                 </div>
               ) : null}
             </div>
           )
         })}
+
+        {/* {contents && contents.map((content) : ContentItem => {
+          return (
+            {content._id === selectedQuestionId ? <p>{content}</p>}
+          )
+        })} */}
+        {selectedQuestion !== null && <p></p>}
     </div>
   )
 }
+
+
+
