@@ -4,7 +4,6 @@ import ContentFetch from './Content_Fetch'
 import { useState } from 'react'
 import Content_Explanation from './Content_Explanation'
 import Content_Question from './Content_Question'
-import { ContentsDB } from '@/types/content'
 
 // interface mainContentProps {
 //   contents?: ContentsDB,
