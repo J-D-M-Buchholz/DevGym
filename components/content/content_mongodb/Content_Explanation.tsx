@@ -14,7 +14,7 @@ export default function Content_Explanation({
   return (
     <div className="max-w-[85rem]">
       {contents &&
-        contents.map((content: ContentItem) => {
+        contents.map((content: ContentsDB) => {
           return (
             <div key={content._id.toString()}>
               {content.title === selectedTitle &&
