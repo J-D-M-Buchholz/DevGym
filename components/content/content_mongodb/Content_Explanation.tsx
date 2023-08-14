@@ -15,7 +15,7 @@ export default function Content_Explanation({
 }: mainContentProps) {
   const { theme } = useTheme()
   return (
-    <div className="max-w-[85rem]">
+    <div >
       {contents &&
         contents.map((content: ContentsDB) => {
           return (
