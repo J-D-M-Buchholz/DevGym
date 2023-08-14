@@ -13,7 +13,7 @@ export default function Content_Explanation({
   selectedTitle,
 }: mainContentProps) {
   return (
-    <div className="max-w-[85rem]">
+    <div >
       {contents &&
         contents.map((content: ContentsDB) => {
           return (
