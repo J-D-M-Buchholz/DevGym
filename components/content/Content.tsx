@@ -9,7 +9,6 @@ import "./Content.css"
 const Content = () => {
   return (
     <div className="container">
-      <Task />
       <Editor />
     </div>
   )
