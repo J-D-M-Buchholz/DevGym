@@ -1,21 +1,5 @@
 /* Theory AREA */
 
-.text_styling > h1 {
-  color: white;
-}
-
-.text_styling > h2 {
-  color: white;
-}
-
-.text_styling > p {
-  color: white;
-}
-
-.text_styling > p > strong {
-  color: white;
-}
-
 /* EDITOR AREA */
 
 .editor_wrapper {

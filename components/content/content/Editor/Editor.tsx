@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import OpenAI from "openai-api"
 
 import TabNavItem from "./TabNav/TabNavItem"
 
@@ -7,6 +8,23 @@ const Editor = () => {
   const [htmlCode, setHtmlCode] = useState("")
   const [cssCode, setCssCode] = useState("")
   const [jsCode, setJsCode] = useState("")
+  const [apiKeyInputValue, setApiKeyInputValue] = useState("")
+  const [openaiAPIKeyIsValidated, setOpenaiAPIKeyIsValidated] = useState(false)
+  const [openaiResponse, setOpenaiResponse] = useState("")
+
+  let openai: OpenAI
+
+  if (openaiAPIKeyIsValidated) {
+    openai = new OpenAI(apiKeyInputValue)
+  }
+
+  useEffect(() => {
+    const storedAPIKey = localStorage.getItem("openaiAPIKey")
+    if (storedAPIKey) {
+      setApiKeyInputValue(storedAPIKey)
+      setOpenaiAPIKeyIsValidated(true)
+    }
+  }, [])
 
   const handleHtmlKeyUp = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setHtmlCode(e.currentTarget.value)
@@ -22,6 +40,30 @@ const Editor = () => {
     setHtmlCode("")
     setCssCode("")
     setJsCode("")
+  }
+
+  const handleAskProfClick = async () => {
+    if (openaiAPIKeyIsValidated) {
+      const selectedQuestion = localStorage.getItem("selectedQuestion")
+      const prompt = selectedQuestion
+        ? `Bitte prüfe ob diese Aufgabe:\n${selectedQuestion}\ndurch folgenden Code erfüllt wird:\n<html><body>${htmlCode}<style>${cssCode}</style><script>const consoleLog = console.log;
+        console.log = (...args) => {
+          document.body.innerHTML +='<br />' + 'console output:' + args.join(' ') + '<br />';
+          consoleLog(...args);
+        };${jsCode}</script></body></html>\nBitte antworte auf Deutsch!`
+        : `Bitte Prüfe ob die Syntax von folgenden Code korekt ist:\n<html><body>${htmlCode}<style>${cssCode}</style><script>const consoleLog = console.log;
+        console.log = (...args) => {
+          document.body.innerHTML +='<br />' + 'console output:' + args.join(' ') + '<br />';
+          consoleLog(...args);
+        };${jsCode}</script></body></html>\nBitte antworte auf Deutsch!`
+      const response = await openai.complete({
+        engine: "text-davinci-003",
+        prompt,
+        maxTokens: 1000,
+        temperature: 1,
+      })
+      setOpenaiResponse(response.data.choices[0].text)
+    }
   }
 
   return (
@@ -88,12 +130,50 @@ const Editor = () => {
           ></iframe>
         </div>
         <div className="editor_buttons_container">
-          <button className="btn btn-linear bg-blue-500">Ask Prof</button>
+          <button
+            className="btn btn-linear bg-blue-500"
+            onClick={handleAskProfClick}
+          >
+            Ask Prof
+          </button>
           <button className="btn btn-linear bg-blue-500" onClick={handleReset}>
             Reset
           </button>
           <button className="btn btn-linear bg-blue-500">Submit</button>
         </div>
+        {apiKeyInputValue === "" ? (
+          <p
+            style={{
+              position: "fixed",
+              bottom: "7.5rem",
+              right: "7.5rem",
+              width:"15rem",
+              backgroundColor: "white",
+              border: "2px solid black",
+              borderRadius: "20px",
+              padding: "10px",
+            }}
+          >
+            Bitte füge zuerst einen gültigen API Schlüssel hinzu!
+          </p>
+        ) : (
+          openaiResponse !== "" && (
+            <p
+              style={{
+                position: "fixed",
+                bottom: "7.5rem",
+                right: "7.5rem",
+                width:"15rem",
+                backgroundColor: "white",
+                border: "2px solid black",
+                borderRadius: "20px",
+                padding: "10px",
+              }}
+            >
+              {openaiResponse}
+            </p>
+          )
+        )}
       </div>
     </div>
   )

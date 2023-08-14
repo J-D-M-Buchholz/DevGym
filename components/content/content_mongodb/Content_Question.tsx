@@ -13,9 +13,7 @@ export default function Content_Question({
   contents,
   selectedTitle,
 }: mainContentProps) {
-  const [selectedQuestion, setSelectedQuestion] = useState<null | string>(
-    null
-  )
+  const [selectedQuestion, setSelectedQuestion] = useState<null | string>(null)
 
   return (
     <div className="max-w-[85rem] gap-5">
@@ -28,7 +26,13 @@ export default function Content_Question({
                 <div className="flex gap-5">
                   <button
                     className="text-xl text-green-800 bg-slate-300"
-                    onClick={() => setSelectedQuestion(content._id.toString())}
+                    onClick={() => {
+                      setSelectedQuestion(content._id.toString())
+                      localStorage.setItem(
+                        "selectedQuestion",
+                        content.question.text
+                      )
+                    }}
                   >
                     {content.question.heading}
                   </button>
