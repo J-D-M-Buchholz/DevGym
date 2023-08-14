@@ -2,6 +2,7 @@ import React from "react"
 
 import { ContentsDB } from "@/types/content"
 import MarkDownViewer from "@/components/markdownViewer/MarkdownViewer"
+
 interface mainContentProps {
   contents?: ContentsDB[]
   selectedTitle: string
@@ -20,7 +21,9 @@ export default function Content_Explanation({
               {content.title === selectedTitle &&
               content.topic === "explanation" ? (
                 <div className="text-center">
-                  <p className="text-sm text-white">{content.explanation.heading}</p>
+                  <p className="text-sm text-white">
+                    {content.explanation.heading}
+                  </p>
                   <MarkDownViewer content={content.explanation.text} />
                 </div>
               ) : null}
