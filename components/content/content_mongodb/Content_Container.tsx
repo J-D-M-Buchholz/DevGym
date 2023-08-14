@@ -25,7 +25,7 @@ export default function Content_Container() {
     <section>
     <div className='flex text-3xl justify-around max-w-[85rem] bg-yellow-400 '>
       {titles.map((title) : any => {
-        return <div key={title} onClick={()=> handleClick(title)}>{title}</div>
+        return <div key={title} onClick={()=> handleClick(title)}>{title.toUpperCase()}</div>
       })}
     </div>
     {/* @ts-ignore */}
