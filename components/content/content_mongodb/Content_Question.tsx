@@ -19,7 +19,7 @@ export default function Content_Question({
 
   return (
 <div className="text-center w-2/3">
-      <div className="flex flex-wrap mt-20">
+      <div className="flex flex-wrap my-20">
         {contents &&
           contents.map((content: ContentItem, index: number) => {
             return (
@@ -47,7 +47,7 @@ export default function Content_Question({
             return (
               <div>
                 {content._id.toString() === selectedQuestion ? (
-                  <p className="text-3xl border mt-20 rounded-md p-2"> Q : {content.question.text}</p>
+                  <p className="text-2xl border mb-20 rounded-md p-2"> Q : {content.question.text}</p>
                 ) : null}
               </div>
             )
