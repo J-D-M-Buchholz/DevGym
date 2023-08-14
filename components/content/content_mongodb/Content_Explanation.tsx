@@ -16,9 +16,8 @@ export default function Content_Explanation({ contents, selectedTitle } : mainCo
             <div key={content._id}>
               {content.title === selectedTitle && content.topic === "explanation" ? (
                 <div className="text-center">
-                  <p className="text-3xl text-green-800">{content.explanation.heading}</p>
+                  <p className="text-sm text-white">{content.explanation.heading}</p>
                   <MarkDownViewer content={content.explanation.text} />
-                  {/* <p>{content.explanation.text}</p> */}
                 </div>
               ) : null}
             </div>
