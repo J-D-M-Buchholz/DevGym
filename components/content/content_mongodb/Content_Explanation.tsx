@@ -12,7 +12,7 @@ export default function Content_Explanation({
   selectedTitle,
 }: mainContentProps) {
   return (
-    <div className="max-w-[85rem]">
+    <div >
       {contents &&
         contents.map((content: ContentsDB) => {
           return (
@@ -20,7 +20,7 @@ export default function Content_Explanation({
               {content.title === selectedTitle &&
               content.topic === "explanation" ? (
                 <div className="text-center">
-                  <p className="text-sm text-white">{content.explanation.heading}</p>
+                  <p className="text-sm ">{content.explanation.heading}</p>
                   <MarkDownViewer content={content.explanation.text} />
                 </div>
               ) : null}
