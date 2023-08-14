@@ -26,7 +26,7 @@ const Editor = () => {
 
   return (
     <div className="editor_wrapper w-full mb-7 flex flex-col justify-center items-center ">
-      <div className="editor_container w-2/4 shadow-lg mb-20">
+      <div className="editor_container w-2/4 mb-20">
         <ul className="tab_nav [&>*:nth-child(1)]:rounded-tl-md [&>*:last-child]:rounded-tr-md">
           <TabNavItem
             title="HTML"
@@ -74,9 +74,9 @@ const Editor = () => {
           )}
         </div>
       </div>
-      <div className="rightarea">
-        <div className="output_container w-full flex-col">
-          <label>Output</label>
+      <div className="output_wrapper w-full flex flex-col items-center justify-center">
+        <div className="output_container w-2/4 flex flex-col items-center justify-center">
+          <label className="dark:bg-orange-500 rounded-t-l">Output</label>
           <iframe
             id="output"
             className="output_window"
