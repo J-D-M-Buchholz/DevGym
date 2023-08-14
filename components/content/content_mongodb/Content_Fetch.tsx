@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react"
+import { ContentsDB } from '@/types/content'
 
-export type ContentItem = any
+export type ContentItem = ContentsDB
 
-export default function ContentFetch() {
-  const [content, setContent] = useState<ContentItem[] | null>(null)
+export default function ContentFetch(): ContentsDB[] | undefined {
+  const [content, setContent] = useState<ContentItem[] | undefined>(undefined)
 
   useEffect(() => {
     async function fetchContent() {
