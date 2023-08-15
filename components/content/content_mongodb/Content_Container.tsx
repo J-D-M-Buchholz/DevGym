@@ -31,9 +31,7 @@ export default function Content_Container() {
           )
         })}
       </div>
-      {/* @ts-ignore */}
       <Content_Explanation contents={contents} selectedTitle={selectedTitle} />
-      {/* @ts-ignore */}
       <Content_Question contents={contents} selectedTitle={selectedTitle} />
     </>
   )

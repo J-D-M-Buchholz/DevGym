@@ -15,7 +15,7 @@ export default function Content_Explanation({
 }: mainContentProps) {
   const { theme } = useTheme()
   return (
-    <div >
+    <div>
       {contents &&
         contents.map((content: ContentsDB) => {
           return (
@@ -23,14 +23,6 @@ export default function Content_Explanation({
               {content.title === selectedTitle &&
               content.topic === "explanation" ? (
                 <div className="text-center">
-                  <p
-                    style={{
-                      color: !theme || theme === "light" ? "black" : "white",
-                    }}
-                    className="text-sm"
-                  >
-                    {content.explanation.heading}
-                  </p>
                   <MarkDownViewer content={content.explanation.text} />
                 </div>
               ) : null}
