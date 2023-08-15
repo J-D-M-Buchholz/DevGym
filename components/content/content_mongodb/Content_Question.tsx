@@ -16,7 +16,7 @@ export default function Content_Question({
   const [selectedQuestion, setSelectedQuestion] = useState<null | string>(null)
 
   return (
-    <div className="max-w-[85rem] gap-5">
+    <div className="max-w-[85rem] gap-5 mb-20">
       {contents &&
         contents.map((content: ContentItem, index: number) => {
           return (
@@ -57,9 +57,3 @@ export default function Content_Question({
     </div>
   )
 }
-
-
-
-
-
-

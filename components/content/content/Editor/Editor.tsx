@@ -67,8 +67,74 @@ const Editor = () => {
   }
 
   return (
-    <div className="editor_wrapper w-full mb-7 flex flex-col justify-center items-center ">
-      <div className="editor_container w-2/4 mb-20">
+    <div className="w-full mb-7 flex flex-col justify-center items-center ">
+      <div className="output_wrapper w-full flex flex-col items-center justify-center">
+        <div className="output_container w-2/4 flex flex-col items-center justify-center rounded-t-md rounded-r-md shadow-md border bg-blue-600 dark:bg-slate-450 dark:border-gray-800">
+          <label className="self-start px-2 my-5 rounded-t-l text-white">
+            OUTPUT
+          </label>
+
+          <iframe
+            id="output"
+            className="output_window"
+            srcDoc={`<html><body>${htmlCode}<style>${cssCode}</style><script>const consoleLog = console.log;
+              console.log = (...args) => {
+                document.body.innerHTML +='<br />' + 'console output:' + args.join(' ') + '<br />';
+                consoleLog(...args);
+              };${jsCode}</script></body></html>`}
+          ></iframe>
+        </div>
+
+        <div className="editor_buttons_container">
+          <button
+            className="btn btn-linear bg-red-500 shadow-md"
+            onClick={handleAskProfClick}
+          >
+            Ask Prof
+          </button>
+          <button
+            className="btn btn-linear shadow-md bg-red-500"
+            onClick={handleReset}
+          >
+            Reset
+          </button>
+        </div>
+        {apiKeyInputValue === "" ? (
+          <p
+            style={{
+              position: "fixed",
+              bottom: "7.5rem",
+              right: "7.5rem",
+              width: "15rem",
+              backgroundColor: "white",
+              border: "2px solid black",
+              borderRadius: "20px",
+              padding: "10px",
+            }}
+          >
+            Bitte füge zuerst einen gültigen API Schlüssel hinzu!
+          </p>
+        ) : (
+          openaiResponse !== "" && (
+            <p
+              style={{
+                position: "fixed",
+                bottom: "7.5rem",
+                right: "7.5rem",
+                width: "15rem",
+                backgroundColor: "white",
+                border: "2px solid black",
+                borderRadius: "20px",
+                padding: "10px",
+              }}
+            >
+              {openaiResponse}
+            </p>
+          )
+        )}
+      </div>
+
+      <div className="editor_container w-2/4 mb-20 shadow-lg border dark:bg-slate-950 dark:border-gray-800">
         <ul className="tab_nav [&>*:nth-child(1)]:rounded-tl-md [&>*:last-child]:rounded-tr-md">
           <TabNavItem
             title="HTML"
@@ -89,11 +155,11 @@ const Editor = () => {
             setActiveTab={setActiveTab}
           />
         </ul>
-        <div className="user_input">
+        <div className="user_input ">
           {activeTab === "html" && (
             <textarea
               value={htmlCode}
-              className="code_editor"
+              className="code_editor shadow-inner dark:text-white dark:bg-slate-900 bg-gray-100 "
               id="html_code"
               onChange={handleHtmlKeyUp}
             ></textarea>
@@ -101,7 +167,7 @@ const Editor = () => {
           {activeTab === "css" && (
             <textarea
               value={cssCode}
-              className="code_editor"
+              className="code_editor shadow-inner dark:text-white dark:bg-slate-900 bg-gray-100"
               id="css_code"
               onChange={handleCssKeyUp}
             ></textarea>
@@ -109,71 +175,12 @@ const Editor = () => {
           {activeTab === "js" && (
             <textarea
               value={jsCode}
-              className="code_editor"
+              className="code_editor shadow-inner dark:text-white dark:bg-slate-900 bg-gray-100"
               id="js_code"
               onChange={handleJsKeyUp}
             ></textarea>
           )}
         </div>
-      </div>
-      <div className="output_wrapper w-full flex flex-col items-center justify-center">
-        <div className="output_container w-2/4 flex flex-col items-center justify-center">
-          <label className="dark:bg-orange-500 rounded-t-l">Output</label>
-          <iframe
-            id="output"
-            className="output_window"
-            srcDoc={`<html><body>${htmlCode}<style>${cssCode}</style><script>const consoleLog = console.log;
-            console.log = (...args) => {
-              document.body.innerHTML +='<br />' + 'console output:' + args.join(' ') + '<br />';
-              consoleLog(...args);
-            };${jsCode}</script></body></html>`}
-          ></iframe>
-        </div>
-        <div className="editor_buttons_container">
-          <button
-            className="btn btn-linear bg-blue-500"
-            onClick={handleAskProfClick}
-          >
-            Ask Prof
-          </button>
-          <button className="btn btn-linear bg-blue-500" onClick={handleReset}>
-            Reset
-          </button>
-          <button className="btn btn-linear bg-blue-500">Submit</button>
-        </div>
-        {apiKeyInputValue === "" ? (
-          <p
-            style={{
-              position: "fixed",
-              bottom: "7.5rem",
-              right: "7.5rem",
-              width:"15rem",
-              backgroundColor: "white",
-              border: "2px solid black",
-              borderRadius: "20px",
-              padding: "10px",
-            }}
-          >
-            Bitte füge zuerst einen gültigen API Schlüssel hinzu!
-          </p>
-        ) : (
-          openaiResponse !== "" && (
-            <p
-              style={{
-                position: "fixed",
-                bottom: "7.5rem",
-                right: "7.5rem",
-                width:"15rem",
-                backgroundColor: "white",
-                border: "2px solid black",
-                borderRadius: "20px",
-                padding: "10px",
-              }}
-            >
-              {openaiResponse}
-            </p>
-          )
-        )}
       </div>
     </div>
   )

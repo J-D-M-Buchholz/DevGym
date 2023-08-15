@@ -22,7 +22,7 @@ export default function Content_Container() {
         {titles.map((title): any => {
           return (
             <button
-              className="cursor-pointer inline-flex justify-center items-center m-1 py-3 px-4 border rounded-md shadow-md bg-white hover:bg-gray-50 focus:outline-none focus:ring focus:text-white focus:ring-sky-600 dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800 dark:focus:text-white "
+              className="cursor-pointer inline-flex justify-center items-center m-1 py-3 px-4 border rounded-md shadow-md bg-white hover:bg-gray-50 focus:outline-none focus:ring focus:text-black focus:ring-amber-600 dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800 dark:focus:text-white"
               key={title}
               onClick={() => handleClick(title)}
             >

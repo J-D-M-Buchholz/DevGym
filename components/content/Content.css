@@ -1,5 +1,29 @@
 /* Theory AREA */
 
+.text_styling > h1 {
+  color: white;
+}
+
+.text_styling > h2 {
+  color: white;
+}
+
+.text_styling > h3 {
+  color: white;
+}
+
+.text_styling > p {
+  color: white;
+}
+
+.text_styling > p > strong {
+  color: white;
+}
+
+.text_styling > p > code {
+  color: white;
+}
+
 /* EDITOR AREA */
 
 .editor_wrapper {
@@ -9,9 +33,13 @@
 .code_editor {
   width: 100%;
   height: 20vh;
-  background-color: white;
+  padding: 0.1rem 0.3rem;
 
   color: black;
+}
+
+textarea {
+  outline: none;
 }
 
 .tab_nav {
@@ -25,14 +53,17 @@
   text-align: center;
   cursor: pointer;
   transition: all 0.7s;
+
+  border: 1px solid rgb(31 41 55 / var(--tw-border-opacity));
 }
 
 .tab_item:hover {
-  background: rgba(50, 224, 196, 0.15);
+  background-color: #f7ba79;
 }
 
 .tab_active {
-  background-color: aqua;
+  color: white;
+  background-color: #f08205;
 }
 
 .tab_content {
@@ -40,15 +71,28 @@
   background-color: gray;
 }
 
+.user_input {
+  display: flex;
+}
+
 /* output area */
+
+/* .output_container {
+  background-color: black;
+} */
 
 .output_window {
   background-color: white;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  vertical-align: middle;
 }
 
 .editor_buttons_container {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 1.5rem;
   margin: 1rem 0;
 }
