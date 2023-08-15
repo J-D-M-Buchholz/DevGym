@@ -1,12 +1,12 @@
 import React from "react"
 
-import Courses from "@/components/courses/Courses"
+import Content from "@/components/content/Content"
 
 const page = () => {
   return (
-    <div>
-      <Courses />
-    </div>
+    <section className="max-w-[85rem] mx-auto">
+      <Content />
+    </section>
   )
 }
 

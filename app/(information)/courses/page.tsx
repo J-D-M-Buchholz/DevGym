@@ -1,7 +1,7 @@
-import React from 'react'
-import Search from './content/search'
-import Banner from './content/banner'
-import Courses from './content/courses'
+import React from "react"
+import Banner from "./content/banner"
+import Courses from "./content/courses"
+import Search from "./content/search"
 
 const page = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react"
-import Hero from "@/components/Hero/Hero"
+import Hero from "@/components/hero/Hero"
 import ContactContent from "@/components/contact/ContactContent"
 
 

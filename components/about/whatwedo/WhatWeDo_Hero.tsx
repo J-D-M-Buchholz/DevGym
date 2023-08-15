@@ -1,7 +1,9 @@
-'use client'
+"use client"
+
 import React from "react"
 import Image from "next/image"
-import Animaion_desk_coding from '../../../components/Animation/Animation'
+
+import Animaion_desk_coding from "../../animation/Animation"
 
 export default function WhatWeDo_Hero() {
   return (
@@ -28,14 +30,14 @@ export default function WhatWeDo_Hero() {
             <span className="font-bold text-violet-700">CODE</span> easy for
             everyone.
           </h1>
- {/*          <Image
+          {/*          <Image
             src="/advancetools.png"
             alt="img"
             width={300}
             height={200}
             className="w-1/3 ovject-cover rounded-2xl "
           ></Image> */}
-          <Animaion_desk_coding/>
+          <Animaion_desk_coding />
         </div>
 
         <p className="text-lg text-stone-800 my-12 font-bold">{`We provide step-by-step training. 

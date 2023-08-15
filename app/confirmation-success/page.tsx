@@ -4,9 +4,9 @@ import { useAuth } from "@/components/AuthContext";
 
 export default function page() {
   const { login } = useAuth();
-  const storedData = localStorage.getItem("userData")
-
+ 
   useEffect(() => {
+    const storedData = localStorage.getItem("userData")
     if (storedData) {
       const parsedData = JSON.parse(storedData);
       login(parsedData);
@@ -15,7 +15,7 @@ export default function page() {
   
   return (
     <div style={{ textAlign: "center", marginTop: "100px" }}>
-      <h2>Thank you for verification your email, you are now logged in!</h2>
+      <h2>Thank you for verifying, you are now logged in!</h2>
     </div>
   )
 }

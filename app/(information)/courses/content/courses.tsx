@@ -8,7 +8,7 @@ const Courses = () => {
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <Link
           className="group rounded-xl p-5 transition-all dark:bg-white/[.03] dark:hover:bg-white/[.075] bg-gray-100 hover:bg-gray-200"
-          href="#"
+          href="/courses/html"
         >
           <div className="aspect-w-16 aspect-h-10">
             <Image
@@ -44,7 +44,7 @@ const Courses = () => {
         </Link>
         <Link
           className="group rounded-xl p-5 transition-all dark:bg-white/[.03] dark:hover:bg-white/[.075] bg-gray-100 hover:bg-gray-200"
-          href="#"
+          href="/courses/css"
         >
           <div className="aspect-w-16 aspect-h-10">
             <Image
@@ -80,7 +80,7 @@ const Courses = () => {
         </Link>
         <Link
           className="group rounded-xl p-5 transition-all dark:bg-white/[.03] dark:hover:bg-white/[.075] bg-gray-100 hover:bg-gray-200"
-          href="#"
+          href="/courses/js"
         >
           <div className="aspect-w-16 aspect-h-10">
             <Image

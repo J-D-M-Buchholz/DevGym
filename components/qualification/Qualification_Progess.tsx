@@ -21,7 +21,7 @@ export default function Qualification_Progess() {
            /> 
          </div>
     <div className="flex flex-col justify-center items-center min-h-screen ">
-        <h1 className='text-4xl m-4 font-bold'>Qualification Progress</h1>
+        <h1 className='text-4xl m-4 font-bold'>Your Qualification Progress</h1>
     {Certificate_Array.map((module) => 
     <Qualification_Percentage  module={module}/>)}
     <button className='font-bold font-sans text-xl mt-4 text-white hover:bg-violet-400 bg-slate-300 p-3 rounded-lg'>Download</button>

@@ -13,6 +13,8 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { buttonVariants } from "@/components/ui/button"
+import { useAuth } from "@/components/AuthContext"
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -51,6 +53,7 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export function Navbar() {
+  const { isLoggedIn } = useAuth()
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -105,11 +108,13 @@ export function Navbar() {
               Contact
             </NavigationMenuLink>
           </Link>
-          <Link href="/content" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Content
-            </NavigationMenuLink>
-          </Link>
+          {isLoggedIn && (
+            <Link href="/content" legacyBehavior passHref>
+              <NavigationMenuLink className={buttonVariants({ variant: 'outline' })}>
+                Content
+              </NavigationMenuLink>
+            </Link>
+          )}
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

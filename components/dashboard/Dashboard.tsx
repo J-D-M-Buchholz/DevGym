@@ -40,7 +40,9 @@ const Dashboard: React.FC = () => {
       {showDiv && (
         <div className="dash_rounded-div">
           {!isLoggedIn ? (
-            <DashboardAuth />
+            <DashboardAuth 
+            setShowDiv={setShowDiv}
+            />
           ) : showProfile ? (
             <DashboardProfile
               showProfile={showProfile}

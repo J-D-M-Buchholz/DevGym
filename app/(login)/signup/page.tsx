@@ -60,7 +60,6 @@ const Page = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setConfirmPassword(true)
-
     if (data.password === data.confirmPassword) {
       signUp()
     } else {
