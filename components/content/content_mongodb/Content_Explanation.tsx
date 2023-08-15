@@ -1,4 +1,5 @@
 import React from "react"
+import { useTheme } from "next-themes"
 
 import { ContentsDB } from "@/types/content"
 import MarkDownViewer from "@/components/markdownViewer/MarkdownViewer"
@@ -12,6 +13,7 @@ export default function Content_Explanation({
   contents,
   selectedTitle,
 }: mainContentProps) {
+  const { theme } = useTheme()
   return (
     <div >
       {contents &&
@@ -21,7 +23,13 @@ export default function Content_Explanation({
               {content.title === selectedTitle &&
               content.topic === "explanation" ? (
                 <div className="text-center">
-                  <p className="text-sm text-white">
+                  <p
+                    style={{
+                      color: !theme || theme === "light" ? "black" : "white",
+                    }}
+                    className="text-sm"
+                  >
+                    {content.explanation.heading}
                   </p>
                   <MarkDownViewer content={content.explanation.text} />
                 </div>

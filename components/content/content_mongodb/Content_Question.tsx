@@ -13,9 +13,7 @@ export default function Content_Question({
   contents,
   selectedTitle,
 }: mainContentProps) {
-  const [selectedQuestion, setSelectedQuestion] = useState<null | string>(
-    null
-  )
+  const [selectedQuestion, setSelectedQuestion] = useState<null | string>(null)
 
   return (
 <div className="text-center w-2/3">
@@ -53,9 +51,3 @@ export default function Content_Question({
 </div>
   )
 }
-
-
-
-
-
-
