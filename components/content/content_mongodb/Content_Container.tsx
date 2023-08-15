@@ -10,7 +10,7 @@ export default function Content_Container() {
   const contents = ContentFetch()
   const [titles, setTitles] = useState(["html", "css", "js"])
   const [selectedTitle, setSelectedTitle] = useState("html")
-  const [selectedQuestion, setSelectedQuestion] = useState(null)
+
 
   function handleClick(title: any) {
     setSelectedTitle(title)

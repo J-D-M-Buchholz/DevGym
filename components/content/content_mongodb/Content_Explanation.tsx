@@ -1,5 +1,4 @@
 import React from "react"
-import { useTheme } from "next-themes"
 
 import { ContentsDB } from "@/types/content"
 import MarkDownViewer from "@/components/markdownViewer/MarkdownViewer"
@@ -13,7 +12,6 @@ export default function Content_Explanation({
   contents,
   selectedTitle,
 }: mainContentProps) {
-  const { theme } = useTheme()
   return (
     <div>
       {contents &&

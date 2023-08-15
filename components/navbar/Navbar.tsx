@@ -25,7 +25,7 @@ const components: { title: string; href: string; description: string }[] = [
   },
   {
     title: "Pricing",
-    href: "/",
+    href: "/pricing",
     description:
       "More information about the pricing, including the pricing that you are enrolled in.",
   },
@@ -36,9 +36,9 @@ const components: { title: string; href: string; description: string }[] = [
       "Quality information, including the qualification that you are enrolled in.",
   },
   {
-    title: "Forum",
-    href: "/",
-    description: "Check out the forum.",
+    title: "Live Codings",
+    href: "/live-coding",
+    description: "Book your own live coding session.",
   },
   {
     title: "Projects",
@@ -111,7 +111,7 @@ export function Navbar() {
           {isLoggedIn && (
             <Link href="/content" legacyBehavior passHref>
               <NavigationMenuLink className={buttonVariants({ variant: 'outline' })}>
-                Content
+                Train your skills!
               </NavigationMenuLink>
             </Link>
           )}
