@@ -67,79 +67,37 @@ const Editor = () => {
   }
 
   return (
-    <div className="editor_wrapper w-full mb-7 flex flex-col justify-center items-center ">
-      <div className="editor_container w-2/4 mb-20">
-        <ul className="tab_nav [&>*:nth-child(1)]:rounded-tl-md [&>*:last-child]:rounded-tr-md">
-          <TabNavItem
-            title="HTML"
-            id="html"
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-          />
-          <TabNavItem
-            title="CSS"
-            id="css"
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-          />
-          <TabNavItem
-            title="JS"
-            id="js"
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-          />
-        </ul>
-        <div className="user_input">
-          {activeTab === "html" && (
-            <textarea
-              value={htmlCode}
-              className="code_editor"
-              id="html_code"
-              onChange={handleHtmlKeyUp}
-            ></textarea>
-          )}
-          {activeTab === "css" && (
-            <textarea
-              value={cssCode}
-              className="code_editor"
-              id="css_code"
-              onChange={handleCssKeyUp}
-            ></textarea>
-          )}
-          {activeTab === "js" && (
-            <textarea
-              value={jsCode}
-              className="code_editor"
-              id="js_code"
-              onChange={handleJsKeyUp}
-            ></textarea>
-          )}
-        </div>
-      </div>
+    <div className="w-full mb-7 flex flex-col justify-center items-center ">
       <div className="output_wrapper w-full flex flex-col items-center justify-center">
-        <div className="output_container w-2/4 flex flex-col items-center justify-center">
-          <label className="dark:bg-orange-500 rounded-t-l">Output</label>
+        <div className="output_container w-2/4 flex flex-col items-center justify-center rounded-t-md rounded-r-md shadow-md border bg-blue-600 dark:bg-slate-450 dark:border-gray-800">
+          <label className="self-start px-2 my-5 rounded-t-l text-white">
+            OUTPUT
+          </label>
+
           <iframe
             id="output"
             className="output_window"
             srcDoc={`<html><body>${htmlCode}<style>${cssCode}</style><script>const consoleLog = console.log;
-            console.log = (...args) => {
-              document.body.innerHTML +='<br />' + 'console output:' + args.join(' ') + '<br />';
-              consoleLog(...args);
-            };${jsCode}</script></body></html>`}
+              console.log = (...args) => {
+                document.body.innerHTML +='<br />' + 'console output:' + args.join(' ') + '<br />';
+                consoleLog(...args);
+              };${jsCode}</script></body></html>`}
           ></iframe>
         </div>
+
         <div className="editor_buttons_container">
           <button
-            className="btn btn-linear bg-blue-500"
+            className="btn btn-linear bg-red-500 shadow-md"
             onClick={handleAskProfClick}
           >
             Ask Prof
           </button>
-          <button className="btn btn-linear bg-blue-500" onClick={handleReset}>
+          <button
+            className="btn btn-linear shadow-md bg-red-500"
+            onClick={handleReset}
+          >
             Reset
           </button>
-          <button className="btn btn-linear bg-blue-500">Submit</button>
         </div>
         {apiKeyInputValue === "" ? (
           <p
@@ -174,6 +132,55 @@ const Editor = () => {
             </p>
           )
         )}
+      </div>
+
+      <div className="editor_container w-2/4 mb-20 shadow-lg border dark:bg-slate-950 dark:border-gray-800">
+        <ul className="tab_nav [&>*:nth-child(1)]:rounded-tl-md [&>*:last-child]:rounded-tr-md">
+          <TabNavItem
+            title="HTML"
+            id="html"
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
+          <TabNavItem
+            title="CSS"
+            id="css"
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
+          <TabNavItem
+            title="JS"
+            id="js"
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
+        </ul>
+        <div className="user_input ">
+          {activeTab === "html" && (
+            <textarea
+              value={htmlCode}
+              className="code_editor shadow-inner dark:text-white dark:bg-slate-900 bg-gray-100 "
+              id="html_code"
+              onChange={handleHtmlKeyUp}
+            ></textarea>
+          )}
+          {activeTab === "css" && (
+            <textarea
+              value={cssCode}
+              className="code_editor shadow-inner dark:text-white dark:bg-slate-900 bg-gray-100"
+              id="css_code"
+              onChange={handleCssKeyUp}
+            ></textarea>
+          )}
+          {activeTab === "js" && (
+            <textarea
+              value={jsCode}
+              className="code_editor shadow-inner dark:text-white dark:bg-slate-900 bg-gray-100"
+              id="js_code"
+              onChange={handleJsKeyUp}
+            ></textarea>
+          )}
+        </div>
       </div>
     </div>
   )
