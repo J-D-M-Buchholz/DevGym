@@ -22,7 +22,6 @@ export default function Content_Explanation({
               content.topic === "explanation" ? (
                 <div className="text-center">
                   <p className="text-sm text-white">
-                    {content.explanation.heading}
                   </p>
                   <MarkDownViewer content={content.explanation.text} />
                 </div>

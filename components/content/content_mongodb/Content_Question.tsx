@@ -33,8 +33,6 @@ export default function Content_Question({
                     >
                       {content.question.heading}
                     </button>
-  
-                    {/*<p>{content._id}</p> */}
                   </div>
                 ) : null}
               </div>
