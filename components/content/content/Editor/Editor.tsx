@@ -50,7 +50,7 @@ const Editor = () => {
         console.log = (...args) => {
           document.body.innerHTML +='<br />' + 'console output:' + args.join(' ') + '<br />';
           consoleLog(...args);
-        };${jsCode}</script></body></html>\nBitte antworte auf Deutsch!`
+        };${jsCode}</script></body></html>\nFalls die aufgabe erfüllt wurde, sprich etwas lob aus.\nFalls die aufgabe nicht erfüllt wurde, bitte erkläre wie man diese erfüllen kann.\nBitte antworte auf Deutsch!`
         : `Bitte Prüfe ob die Syntax von folgenden Code korekt ist:\n<html><body>${htmlCode}<style>${cssCode}</style><script>const consoleLog = console.log;
         console.log = (...args) => {
           document.body.innerHTML +='<br />' + 'console output:' + args.join(' ') + '<br />';
@@ -147,7 +147,7 @@ const Editor = () => {
               position: "fixed",
               bottom: "7.5rem",
               right: "7.5rem",
-              width:"15rem",
+              width: "15rem",
               backgroundColor: "white",
               border: "2px solid black",
               borderRadius: "20px",
@@ -163,7 +163,7 @@ const Editor = () => {
                 position: "fixed",
                 bottom: "7.5rem",
                 right: "7.5rem",
-                width:"15rem",
+                width: "15rem",
                 backgroundColor: "white",
                 border: "2px solid black",
                 borderRadius: "20px",
