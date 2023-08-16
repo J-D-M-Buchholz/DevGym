@@ -9,6 +9,14 @@ interface Follower {
 }
 
 const FollowersCard: React.FC = () => {
+  const [follow, setFollow] = useState(Array(Followers.length).fill(false));
+
+  const handleFollow = (id: number) => {
+    const newFollow = [...follow];
+    newFollow[id] = !newFollow[id];
+    setFollow(newFollow);
+  };
+
   return (
     <div className="dash_FollowersCard">
       <h1>Followers...</h1>
@@ -22,12 +30,18 @@ const FollowersCard: React.FC = () => {
                 <span>@{follower.username}</span>
               </div>
             </div>
-            <button className="dash_button dash_fc-button">Follow</button>
+            <button
+              className="dash_button dash_fc-button"
+              onClick={() => handleFollow(id)}
+            >
+              {follow[id] ? "Unfollow" : "Follow"}
+            </button>
           </div>
         );
       })}
     </div>
   );
 };
+
 
 export default FollowersCard;

@@ -1,5 +1,12 @@
 export const PostsData = [
   {
+    img: "/zertificat.png",
+    name: "HTML certificate",
+    desc: "Congratulations you have finished the html course",
+    likes: 4,
+    liked: true,
+  },
+  {
     img: "/yeran_.png",
     name: "Ran",
     desc: "Ching Ching!!!",
