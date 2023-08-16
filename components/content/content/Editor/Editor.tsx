@@ -93,7 +93,7 @@ const Editor = () => {
             Ask Prof
           </button>
           <button
-            className="btn btn-linear shadow-md bg-red-500"
+            className="btn btn-linear bg-red-500 shadow-md"
             onClick={handleReset}
           >
             Reset
