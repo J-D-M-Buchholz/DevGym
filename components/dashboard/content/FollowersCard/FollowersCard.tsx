@@ -34,7 +34,7 @@ const FollowersCard: React.FC = () => {
               className="dash_button dash_fc-button"
               onClick={() => handleFollow(id)}
             >
-              {follow[id] ? "Unfollow" : "Follow"}
+              {follow[id] ? "Follow" : "Unfollow"}
             </button>
           </div>
         );

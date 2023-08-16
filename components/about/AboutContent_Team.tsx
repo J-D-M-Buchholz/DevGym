@@ -36,8 +36,7 @@ export default function AboutContent_Team() {
           </div>
 
           <p className="mt-3 text-gray-500">
-            I am an ambitious workaholic, but apart from that, pretty simple
-            person.
+          A professional web developer is an expert in designing, coding, and maintaining websites and web applications. They have a strong understanding of both front-end and back-end technologies and are able to create dynamic and interactive websites.
           </p>
 
           <div className="mt-3 space-x-1">
@@ -80,8 +79,7 @@ export default function AboutContent_Team() {
           </div>
 
           <p className="mt-3 text-gray-500">
-            I am an ambitious workaholic, but apart from that, pretty simple
-            person.
+          A professional web developer is skilled in creating responsive and user-friendly websites that are optimized for various devices and platforms. They have a deep understanding of user experience and are able to create intuitive interfaces that are easy to use.
           </p>
 
           <div className="mt-3 space-x-1">
@@ -124,8 +122,7 @@ export default function AboutContent_Team() {
           </div>
 
           <p className="mt-3 text-gray-500">
-            I am an ambitious workaholic, but apart from that, pretty simple
-            person.
+          A professional web developer is knowledgeable about the latest trends and best practices in web development. They stay up-to-date with new tools and frameworks and are able to integrate them into their work to create cutting-edge websites.
           </p>
 
           <div className="mt-3 space-x-1">
@@ -168,8 +165,7 @@ export default function AboutContent_Team() {
           </div>
 
           <p className="mt-3 text-gray-500">
-            I am an ambitious workaholic, but apart from that, pretty simple
-            person.
+          A professional web developer is able to work independently or as part of a team. They have excellent communication skills and are able to collaborate effectively with designers, project managers, and other stakeholders.
           </p>
 
           <div className="mt-3 space-x-1">
@@ -212,8 +208,7 @@ export default function AboutContent_Team() {
           </div>
 
           <p className="mt-3 text-gray-500">
-            I am an ambitious workaholic, but apart from that, pretty simple
-            person.
+          A professional web developer is committed to delivering high-quality work on time and on budget. They have a strong work ethic and are able to manage multiple projects simultaneously while maintaining attention to detail.
           </p>
 
           <div className="mt-3 space-x-1">
