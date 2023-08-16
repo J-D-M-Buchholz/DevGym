@@ -85,15 +85,15 @@ const Editor = () => {
           ></iframe>
         </div>
 
-        <div className="editor_buttons_container">
+        <div className="around items-center space-x-6 my-4">
           <button
-            className="btn btn-linear bg-red-500 shadow-md"
+            className="btn btn-linear bg-red-500 shadow-md rounded text-white text-1xl p-2"
             onClick={handleAskProfClick}
           >
             Ask Prof
           </button>
           <button
-            className="btn btn-linear bg-red-500 shadow-md"
+            className="btn btn-linear bg-red-500 shadow-md rounded text-white text-1xl p-2"
             onClick={handleReset}
           >
             Reset

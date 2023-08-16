@@ -89,10 +89,10 @@ textarea {
   vertical-align: middle;
 }
 
-.editor_buttons_container {
+/* .editor_buttons_container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 1.5rem;
   margin: 1rem 0;
-}
+} */
