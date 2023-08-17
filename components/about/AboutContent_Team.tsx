@@ -36,7 +36,7 @@ export default function AboutContent_Team() {
           </div>
 
           <p className="mt-3 text-gray-500">
-          A professional web developer is an expert in designing, coding, and maintaining websites and web applications. They have a strong understanding of both front-end and back-end technologies and are able to create dynamic and interactive websites.
+          Hi, I’m a full stack developer with experience in building web applications using technologies such as React, Node.js, and MongoDB. I enjoy solving complex problems and creating user-friendly interfaces.
           </p>
 
           <div className="mt-3 space-x-1">
@@ -79,7 +79,7 @@ export default function AboutContent_Team() {
           </div>
 
           <p className="mt-3 text-gray-500">
-          A professional web developer is skilled in creating responsive and user-friendly websites that are optimized for various devices and platforms. They have a deep understanding of user experience and are able to create intuitive interfaces that are easy to use.
+          As a full stack developer, I have a strong understanding of both front-end and back-end development. I am skilled in languages such as JavaScript, HTML, and CSS, and have experience working with frameworks like Angular and Express.
           </p>
 
           <div className="mt-3 space-x-1">
@@ -122,7 +122,7 @@ export default function AboutContent_Team() {
           </div>
 
           <p className="mt-3 text-gray-500">
-          A professional web developer is knowledgeable about the latest trends and best practices in web development. They stay up-to-date with new tools and frameworks and are able to integrate them into their work to create cutting-edge websites.
+          My passion for coding and problem-solving led me to become a full stack developer. I have experience building web applications from the ground up, using technologies such as Ruby on Rails and PostgreSQL.
           </p>
 
           <div className="mt-3 space-x-1">
@@ -165,7 +165,7 @@ export default function AboutContent_Team() {
           </div>
 
           <p className="mt-3 text-gray-500">
-          A professional web developer is able to work independently or as part of a team. They have excellent communication skills and are able to collaborate effectively with designers, project managers, and other stakeholders.
+          With a background in computer science and several years of experience as a full stack developer, I have the skills and knowledge to build robust and scalable web applications. I am proficient in languages such as Python and Java, and have experience working with cloud platforms like AWS.
           </p>
 
           <div className="mt-3 space-x-1">
@@ -208,7 +208,7 @@ export default function AboutContent_Team() {
           </div>
 
           <p className="mt-3 text-gray-500">
-          A professional web developer is committed to delivering high-quality work on time and on budget. They have a strong work ethic and are able to manage multiple projects simultaneously while maintaining attention to detail.
+          As a full stack developer, I am able to work on all aspects of a web application, from the front-end user interface to the back-end server-side logic. I have experience with technologies such as React Native, Django, and MySQL, and enjoy learning new tools and frameworks to improve my skills.
           </p>
 
           <div className="mt-3 space-x-1">

@@ -45,6 +45,10 @@ const OpenAIComponent = () => {
     "Türkisch",
     "Polnisch",
     "Koreanisch",
+    "Arabisch",
+    "Japanisch",
+    "Russisch",
+    "Chenesisch",
   ]
 
   const pleaseAnswer = [
@@ -56,6 +60,10 @@ const OpenAIComponent = () => {
     " lütfen türkçe cevaplayın. ",
     " proszę o odpowiedź po polsku ",
     " 한국어로 대답해주세요 ",
+    " ارجو الاجابة بالعربية. ",
+    " 日本語で答えてください。 ",
+    " Пожалуйста, ответьте по-русски. ",
+    " 請用中文回答。 ",
   ]
 
   const settings = [
@@ -67,6 +75,10 @@ const OpenAIComponent = () => {
     "lütfen bana sözdiziminin doğru olup olmadığını ve kodun ne yaptığını söyleyin. Kodda hatalar varsa, lütfen neyin yanlış olduğunu ve nasıl doğru yapılacağını açıklayın. Lütfen kod örnekleri vermeyin, kelimelerle açıklayın.",
     "proszę powiedz mi, czy składnia jest poprawna i co robi kod. Jeśli w kodzie są błędy, wyjaśnij, co jest nie tak i jak to zrobić dobrze. Proszę nie podawać przykładów kodu, wyjaśnij to słowami.",
     "구문이 올바른지, 코드가 무엇을 하는지 알려주십시오. 코드에 오류가 있는 경우 무엇이 잘못되었고 올바르게 수행하는 방법을 설명하십시오. 말로 설명하는 코드 예제를 제공하지 마십시오.",
+    "من فضلك قل لي ما إذا كانت البنية صحيحة وماذا تفعل الكود. إذا كانت هناك أخطاء في الكود ، فيرجى توضيح الخطأ وكيفية القيام بذلك بشكل صحيح. من فضلك لا تعطي أمثلة على الكود اشرحها بالكلمات.",
+    "構文が正しいかどうか、コードが何をするか教えてください。 コードにエラーがある場合は、何が間違っているのか、それを正しく行う方法を説明してください。 コード例を言葉で説明しないでください。",
+    "скажите, пожалуйста, правильный ли синтаксис и что делает код. Если в коде есть ошибки, объясните пожалуйста, что не так и как это сделать правильно. Пожалуйста, не давайте примеры кода, объясняйте это словами.",
+    "請告訴我語法是否正確以及代碼的作用。 如果代碼中有錯誤，請說明錯在哪里以及如何正確處理。 請不要給出代碼示例用文字解釋它。",
   ]
 
   const handlePopup = () => {
