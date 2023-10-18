@@ -1,34 +1,16 @@
-# DevGym: A Interactive Web Development Learning Platform
+# Lernplattform für Programmieranfänger
 
-Welcome to **_DevGym_**, an innovative web-based platform designed to empower individuals in their journey to mastering web development. This project offers a dynamic learning environment tailored specifically for web development enthusiasts.
+Unser Team hat diese Webanwendung erstellt, um Anfängern eine umfassende Plattform zu bieten, auf der sie das Programmieren Schritt für Schritt erlernen können.
 
-## About DevGym
+## Unsere Mission
 
-**_DevGym_** is a comprehensive learning hub that allows users to advance their coding skills at their own pace. Wether you're a beginner or an experienced coder looking to refine your web development expertise, DevGym is your place.
+Wir glauben, dass jeder die Möglichkeit haben sollte, die Fähigkeiten zu erwerben, die für die digitale Welt von heute notwendig sind. Deshalb haben wir uns entschlossen, diese Webseite zu erstellen und hoffen, dass sie vielen Menschen dabei helfen wird, das Programmieren zu erlernen und ihre Karrierechancen zu verbessern.
 
-This project is a begging step to that idea and will be updated.
+## Einsatz von Künstlicher Intelligenz (KI)
 
-Built with:
+Um unsere Nutzer beim Lernen bestmöglich zu unterstützen, nutzen wir künstliche Intelligenz (KI). Diese Technologie ermöglicht es uns, individuelle Lernpfade zu erstellen und den Lernfortschritt jedes Einzelnen zu verfolgen. So können wir sicherstellen, dass jeder Nutzer die bestmögliche Unterstützung erhält.
 
-- NextJS 13 with Typescript and TailwindCSS
-- Database with MongoDB
+## Hinweis zum aktuellen Entwicklungsstand
 
-## Key Features
+Bitte beachten Sie, dass es sich hierbei nur um einen Prototyp handelt und noch nicht alle Funktionen des Endprodukts enthalten sind. Wir befinden uns momentan erst am Ende der Alpha-Phase, aber trotzdem sind wir gerne bereit, jedem, der Interesse hat, einen Einblick zu gewähren.
 
-- Personalized Learning: Our platform enables users to learn at their own pace, making it suitable for learners of all levels.
-- Coding Skill Enhancement: DevGym provides exclusively on web development, offering a specialized experience to strengthen your coding skills in this domain.
-- AI-Powered Assistant: For effective learning, we integrated an AI-powered assistant. This feature allows users to ask questions, receive insightful answers and analyze coding solutions.
-
-## Our Team / Contributors
-
-- [Joel-Buchholz](https://github.com/Joel-Buchholz)
-- [BxrXPK](https://github.com/BxrXPK)
-- [Yerankim1230](https://github.com/Yerankim1230)
-- [eliaselherrera96](https://github.com/eliaselherrera96)
-- [YasinUz](https://github.com/YasinUz)
-
-## Contact
-
-If you have any questions, feedback or inquiries, you can reach us at
-"E-Mail"
-# DevGym
